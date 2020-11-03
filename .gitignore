@@ -7,3 +7,5 @@ target
 /.settings
 /RUNNING_PID
 .metals/
+.DS_Store
+app/.DS_Store
