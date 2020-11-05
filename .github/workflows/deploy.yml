@@ -26,11 +26,11 @@ jobs:
         with:
           status: ${{ job.status }}
           author_name: デプロイ処理結果
-          fields: repo,author,action,job,took,eventName,ref,workflow
+          fields: repo,author,took,eventName,ref,workflow
           custom_payload: |
             {
               username: 'Slack Notification Action',
-              icon_emoji: ':octocat:',
+              icon_emoji: ':maruchan:',
               color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning'
             }
         env:
