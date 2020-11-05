@@ -2,7 +2,7 @@ name: Deploy App
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -29,13 +29,6 @@ jobs:
           fields: repo,author,took,eventName,ref,workflow
           username: 'Slack Notification Action'
           icon_emoji: ':maruchan:'
-          custom_payload: |
-            {
-              text: "Custom Field Check",
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning'
-              }]
-            }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
