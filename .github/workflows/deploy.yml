@@ -1,8 +1,10 @@
-name: Scala CI
+name: Deploy App
 
 on:
   push:
-    branches: [ master ]
+    branches: |
+      - 'master'
+      - 'develop'
 
 jobs:
   build:
@@ -20,3 +22,20 @@ jobs:
           git config --global user.email i-happy-go-lucky-life0001@ezweb.ne.jp
           git config --global user.name takapi327
           sbt "release with-defaults"
+
+      - name: Notify deployment
+        uses: 8398a7/action-slack@v3.8.0
+        with:
+          status: ${{ job.status }}
+          author_name: デプロイ処理結果
+          fields: repo,author,action,job,took,eventName,ref,workflow
+          custom_payload: |
+            {
+              username: 'Slack Notification Action',
+              icon_emoji: ':octocat:',
+              color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning'
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

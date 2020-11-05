@@ -1,7 +1,7 @@
 name := """real-estate-sales-contract-management-system"""
 organization := "com.example"
 
-version := "1.0-SNAPSHOT"
+//version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
@@ -15,3 +15,20 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0
 
 // Adds additional packages into conf/routes
 // play.sbt.routes.RoutesKeys.routesImport += "com.example.binders._"
+
+import ReleaseTransformations._
+
+releaseVersionBump := sbtrelease.Version.Bump.Bugfix
+
+skip in publish := true
+
+releaseProcess := Seq[ReleaseStep](
+  inquireVersions,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  releaseStepCommandAndRemaining("publish"),
+  setNextVersion,
+  commitNextVersion,
+  pushChanges
+)
