@@ -24,14 +24,16 @@ jobs:
       - name: Notify deployment
         uses: 8398a7/action-slack@v3.8.0
         with:
-          status: ${{ job.status }}
+          status: custom
           author_name: デプロイ処理結果
           fields: repo,author,took,eventName,ref,workflow
           custom_payload: |
             {
               username: 'Slack Notification Action',
               icon_emoji: ':maruchan:',
-              color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning'
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning'
+              }]
             }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
