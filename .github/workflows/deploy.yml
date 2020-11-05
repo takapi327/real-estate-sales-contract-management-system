@@ -24,13 +24,14 @@ jobs:
       - name: Notify deployment
         uses: 8398a7/action-slack@v3.8.0
         with:
-          status: custom
+          status: ${{ job.status }}
           author_name: デプロイ処理結果
           fields: repo,author,took,eventName,ref,workflow
+          username: 'Slack Notification Action'
+          icon_emoji: ':maruchan:'
           custom_payload: |
             {
-              username: 'Slack Notification Action',
-              icon_emoji: ':maruchan:',
+              text: "Custom Field Check",
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning'
               }]
