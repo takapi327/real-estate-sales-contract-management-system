@@ -21,7 +21,7 @@ jobs:
         run: |
           git config --global user.email i-happy-go-lucky-life0001@ezweb.ne.jp
           git config --global user.name takapi327
-          sbt "release with-defaults"
+          sbt "release with-defaults skip-tests"
 
       - name: Notify deployment
         uses: 8398a7/action-slack@v3.8.0
