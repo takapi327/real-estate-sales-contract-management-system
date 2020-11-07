@@ -29,7 +29,7 @@ object Subscriber {
     rawLastName:    String,
     rawAge:         Int,
     rawAddress:     String,
-    rawPhoneNumber: Int,
+    rawPhoneNumber: String,
     rawEmail:       String
   ): ValidatedNel[String, Subscriber] = {
 
