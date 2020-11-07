@@ -7,18 +7,12 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.13.3"
 
-val circeVersion = "0.12.3"
-
 libraryDependencies ++= Seq(
   guice,
   "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
   "org.typelevel"          %% "cats-core"          % "2.0.0",
   "eu.timepit"             %% "refined"            % "0.9.13",
-  "io.estatico"            %% "newtype"            % "0.4.4",
-  "io.circe"               %% "circe-core"         % circeVersion,
-  "io.circe"               %% "circe-generic"      % circeVersion,
-  "io.circe"               %% "circe-parser"       % circeVersion,
-  "io.circe"               %% "circe-refined"      % circeVersion,
+  "io.estatico"            %% "newtype"            % "0.4.4"
 )
 
 /**
