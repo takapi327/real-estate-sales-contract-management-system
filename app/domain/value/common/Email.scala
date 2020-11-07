@@ -6,9 +6,9 @@ import eu.timepit.refined.api.Refined
 
 import io.estatico.newtype.macros.newtype
 
-object email {
+package object email {
 
-  type EmailRule   = MatchesRegex["""[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{2,}"""]
+  type EmailRule   = MatchesRegex["""[\w\-._]+@[\w\-._]+\.[A-Za-z]+"""]
   type EmailString = String Refined EmailRule
 
   @newtype case class Email(value: EmailString)
