@@ -15,11 +15,6 @@ libraryDependencies ++= Seq(
   "io.estatico"            %% "newtype"            % "0.4.4"
 )
 
-/**
- * @see: https://github.com/estatico/scala-newtype
- * Install For newtype
- */
-//addCompilerPlugin("org.scalamacros" % "paradise" % "2.12.8" cross CrossVersion.full)
 addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVersion.full)
 
 scalacOptions ++= Seq(
