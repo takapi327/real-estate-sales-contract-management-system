@@ -10,11 +10,13 @@ package object types {
     def name      = toString
     def lowerName = name.toLowerCase
 
-    def detail = code match {
+    def detailName = code match {
       case LAND_CODE               => "土地"
       case DETACHED_HOUSE_CODE     => "戸建て"
       case APARTMENT_BUILDING_CODE => "マンション"
     }
+
+    def nameSet = (name, lowerName, detailName)
   }
 
   object Type {
