@@ -14,11 +14,11 @@ package object structure {
     def code      = rawCode
 
     def detailName = rawCode match {
-      case WOODWORK_CODE                                      => "木造"
-      case LIGHTWEIGHT_STEEL_CONSTRUCTION_CODE                => "軽量鉄骨造"
-      case HEAVY_STEEL_CONSTRUCTION_CODE                      => "重量鉄骨造"
-      case REINFORCED_CONCRETE_CONSTRUCTION_CODE              => "鉄筋コンクリート造"
-      case STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION_CODE  => "鉄骨鉄筋コンクリート造"
+      case WOODWORK_CODE                                     => "木造"
+      case LIGHTWEIGHT_STEEL_CONSTRUCTION_CODE               => "軽量鉄骨造"
+      case HEAVY_STEEL_CONSTRUCTION_CODE                     => "重量鉄骨造"
+      case REINFORCED_CONCRETE_CONSTRUCTION_CODE             => "鉄筋コンクリート造"
+      case STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION_CODE => "鉄骨鉄筋コンクリート造"
     }
 
     def nameSet = (upperName, lowerName, detailName)
