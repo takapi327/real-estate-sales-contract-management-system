@@ -6,9 +6,10 @@ package object types {
   private lazy val DETACHED_HOUSE_CODE:     Int = 1
   private lazy val APARTMENT_BUILDING_CODE: Int = 2
 
-  sealed abstract class Type(code: Int) {
-    def name      = toString
-    def lowerName = name.toLowerCase
+  sealed abstract class Type(rawCode: Int) {
+    def upperName = toString
+    def lowerName = upperName.toLowerCase
+    def code      = rawCode
 
     def detailName = code match {
       case LAND_CODE               => "土地"
@@ -16,7 +17,7 @@ package object types {
       case APARTMENT_BUILDING_CODE => "マンション"
     }
 
-    def nameSet = (name, lowerName, detailName)
+    def nameSet = (upperName, lowerName, detailName)
   }
 
   object Type {
