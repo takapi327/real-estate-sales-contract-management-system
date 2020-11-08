@@ -11,7 +11,7 @@ package object types {
     def lowerName = upperName.toLowerCase
     def code      = rawCode
 
-    def detailName = code match {
+    def detailName = rawCode match {
       case LAND_CODE               => "土地"
       case DETACHED_HOUSE_CODE     => "戸建て"
       case APARTMENT_BUILDING_CODE => "マンション"
