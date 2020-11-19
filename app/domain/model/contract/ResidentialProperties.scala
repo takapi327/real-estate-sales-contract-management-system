@@ -5,10 +5,12 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
+import domain.value.common.age._
 import domain.value.common.name._
 
 import io.estatico.newtype.macros.newtype
 
+import ResidentialProperties._
 case class ResidentialProperties(
   residentialPropertiesId: ResidentialProperties.Id,
   firstName:               FirstName,
