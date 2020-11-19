@@ -20,8 +20,7 @@ case class Employee (
   address:       String,
   phoneNumber:   PhoneNumber,
   email:         Email,
-  licenseNumber: LicenseNumber,
- // companyId:               Company.Id
+  licenseNumber: LicenseNumber
 )
 
 object Employee {
@@ -36,8 +35,7 @@ object Employee {
     rawAddress:       String,
     rawPhoneNumber:   String,
     rawEmail:         String,
-    rawLicenseNumber: Int,
-    //rawCompanyId:     Company.Id
+    rawLicenseNumber: Int
   ): ValidatedNel[String, ResidentialProperties] = {
     (for {
        firstName   <- FirstName(rawFirstName)
@@ -55,7 +53,6 @@ object Employee {
         phoneNumber   = phoneNumber,
         email         = email,
         licenseNumber = LicenseNumber(rawLicenseNumber)
-        //companyId    = rawCompanyId
       )
     }).toValidatedNel
   }
