@@ -20,7 +20,7 @@ case class Employee (
   address:       String,
   phoneNumber:   PhoneNumber,
   email:         Email,
-  licenseNumber: LicenseNumber
+  licenseNumber: Option[LicenseNumber]
 )
 
 object Employee {
