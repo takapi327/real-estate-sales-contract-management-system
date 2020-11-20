@@ -12,6 +12,7 @@ import domain.value.common.phone._
 
 import io.estatico.newtype.macros.newtype
 
+import Employee._
 case class Employee (
   employeeId:    Employee.Id,
   firstName:     FirstName,
@@ -35,8 +36,8 @@ object Employee {
     rawAddress:       String,
     rawPhoneNumber:   String,
     rawEmail:         String,
-    rawLicenseNumber: Int
-  ): ValidatedNel[String, ResidentialProperties] = {
+    rawLicenseNumber: Option[Int]
+  ): ValidatedNel[String, Employee] = {
     (for {
        firstName   <- FirstName(rawFirstName)
        lastName    <- LastName(rawLastName)
@@ -52,7 +53,7 @@ object Employee {
         address       = rawAddress,
         phoneNumber   = phoneNumber,
         email         = email,
-        licenseNumber = LicenseNumber(rawLicenseNumber)
+        licenseNumber = rawLicenseNumber.map(LicenseNumber(_))
       )
     }).toValidatedNel
   }
