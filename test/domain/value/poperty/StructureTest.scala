@@ -32,14 +32,6 @@ class StructureTest extends FunSuite {
     assert(Structure.WOODWORK.code != 1)
   }
 
-  test("The WOODWORK object detailName is the same as the specified string") {
-    assert(Structure.WOODWORK.detailName == "木造")
-  }
-
-  test("The WOODWORK object detailName is not the same as the specified string") {
-    assert(Structure.WOODWORK.detailName != "軽量鉄骨造")
-  }
-
   test("The WOODWORK object nameSet is the same as the specified name set") {
     assert(Structure.WOODWORK.nameSet == ("WOODWORK", "woodwork", "木造"))
   }
@@ -81,14 +73,6 @@ class StructureTest extends FunSuite {
 
   test("LIGHTWEIGHT_STEEL_CONSTRUCTION code will not be the same as the specified number") {
     assert(Structure.LIGHTWEIGHT_STEEL_CONSTRUCTION.code != 2)
-  }
-
-  test("The LIGHTWEIGHT_STEEL_CONSTRUCTION object detailName is the same as the specified string") {
-    assert(Structure.LIGHTWEIGHT_STEEL_CONSTRUCTION.detailName == "軽量鉄骨造")
-  }
-
-  test("The LIGHTWEIGHT_STEEL_CONSTRUCTION object detailName is not the same as the specified string") {
-    assert(Structure.LIGHTWEIGHT_STEEL_CONSTRUCTION.detailName != "重量鉄骨造")
   }
 
   test("The LIGHTWEIGHT_STEEL_CONSTRUCTION object nameSet is the same as the specified name set") {
@@ -134,14 +118,6 @@ class StructureTest extends FunSuite {
     assert(Structure.HEAVY_STEEL_CONSTRUCTION.code != 3)
   }
 
-  test("The HEAVY_STEEL_CONSTRUCTION object detailName is the same as the specified string") {
-    assert(Structure.HEAVY_STEEL_CONSTRUCTION.detailName == "重量鉄骨造")
-  }
-
-  test("The HEAVY_STEEL_CONSTRUCTION object detailName is not the same as the specified string") {
-    assert(Structure.HEAVY_STEEL_CONSTRUCTION.detailName != "鉄筋コンクリート造")
-  }
-
   test("The HEAVY_STEEL_CONSTRUCTION object nameSet is the same as the specified name set") {
     assert(Structure.HEAVY_STEEL_CONSTRUCTION.nameSet == ("HEAVY_STEEL_CONSTRUCTION", "heavy_steel_construction", "重量鉄骨造"))
   }
@@ -185,14 +161,6 @@ class StructureTest extends FunSuite {
     assert(Structure.REINFORCED_CONCRETE_CONSTRUCTION.code != 4)
   }
 
-  test("The REINFORCED_CONCRETE_CONSTRUCTION object detailName is the same as the specified string") {
-    assert(Structure.REINFORCED_CONCRETE_CONSTRUCTION.detailName == "鉄筋コンクリート造")
-  }
-
-  test("The REINFORCED_CONCRETE_CONSTRUCTION object detailName is not the same as the specified string") {
-    assert(Structure.REINFORCED_CONCRETE_CONSTRUCTION.detailName != "鉄骨鉄筋コンクリート造")
-  }
-
   test("The REINFORCED_CONCRETE_CONSTRUCTION object nameSet is the same as the specified name set") {
     assert(Structure.REINFORCED_CONCRETE_CONSTRUCTION.nameSet == ("REINFORCED_CONCRETE_CONSTRUCTION", "reinforced_concrete_construction", "鉄筋コンクリート造"))
   }
@@ -234,14 +202,6 @@ class StructureTest extends FunSuite {
 
   test("STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION code will not be the same as the specified number") {
     assert(Structure.STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION.code != 0)
-  }
-
-  test("The STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION object detailName is the same as the specified string") {
-    assert(Structure.STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION.detailName == "鉄骨鉄筋コンクリート造")
-  }
-
-  test("The STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION object detailName is not the same as the specified string") {
-    assert(Structure.STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION.detailName != "木造")
   }
 
   test("The STEEL_FRAMED_REINFOCED_CONCRETE_CONSTRUCTION object nameSet is the same as the specified name set") {

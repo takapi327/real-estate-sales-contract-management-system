@@ -6,24 +6,18 @@ package object types {
   private lazy val DETACHED_HOUSE_CODE:     Int = 1
   private lazy val APARTMENT_BUILDING_CODE: Int = 2
 
-  sealed abstract class Type(rawCode: Int) {
+  sealed abstract class Type(rawCode: Int,  detailName: String) {
     def upperName = toString
     def lowerName = upperName.toLowerCase
     def code      = rawCode
-
-    def detailName = rawCode match {
-      case LAND_CODE               => "土地"
-      case DETACHED_HOUSE_CODE     => "戸建て"
-      case APARTMENT_BUILDING_CODE => "マンション"
-    }
 
     def nameSet = (upperName, lowerName, detailName)
   }
 
   object Type {
-    case object LAND               extends Type(LAND_CODE)
-    case object DETACHED_HOUSE     extends Type(DETACHED_HOUSE_CODE)
-    case object APARTMENT_BUILDING extends Type(APARTMENT_BUILDING_CODE)
+    case object LAND               extends Type(LAND_CODE,               "土地")
+    case object DETACHED_HOUSE     extends Type(DETACHED_HOUSE_CODE,     "戸建て")
+    case object APARTMENT_BUILDING extends Type(APARTMENT_BUILDING_CODE, "マンション")
 
     def find(rawCode: Int): Type = {
       rawCode match {

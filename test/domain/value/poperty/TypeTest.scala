@@ -32,14 +32,6 @@ class TypeTest extends FunSuite {
     assert(Type.LAND.code != 1)
   }
 
-  test("The LAND object detailName is the same as the specified string") {
-    assert(Type.LAND.detailName == "土地")
-  }
-
-  test("The LAND object detailName is not the same as the specified string") {
-    assert(Type.LAND.detailName != "戸建て")
-  }
-
   test("The LAND object nameSet is the same as the specified name set") {
     assert(Type.LAND.nameSet == ("LAND", "land", "土地"))
   }
@@ -83,14 +75,6 @@ class TypeTest extends FunSuite {
     assert(Type.DETACHED_HOUSE.code != 2)
   }
 
-  test("The DETACHED_HOUSE object detailName is the same as the specified string") {
-    assert(Type.DETACHED_HOUSE.detailName == "戸建て")
-  }
-
-  test("The DETACHED_HOUSE object detailName is not the same as the specified string") {
-    assert(Type.DETACHED_HOUSE.detailName != "マンション")
-  }
-
   test("The DETACHED_HOUSE object nameSet is the same as the specified name set") {
     assert(Type.DETACHED_HOUSE.nameSet == ("DETACHED_HOUSE", "detached_house", "戸建て"))
   }
@@ -132,14 +116,6 @@ class TypeTest extends FunSuite {
 
   test("APARTMENT_BUILDING code will not be the same as the specified number") {
     assert(Type.APARTMENT_BUILDING.code != 0)
-  }
-
-  test("The APARTMENT_BUILDING object detailName is the same as the specified string") {
-    assert(Type.APARTMENT_BUILDING.detailName == "マンション")
-  }
-
-  test("The APARTMENT_BUILDING object detailName is not the same as the specified string") {
-    assert(Type.APARTMENT_BUILDING.detailName != "土地")
   }
 
   test("The APARTMENT_BUILDING object nameSet is the same as the specified name set") {
