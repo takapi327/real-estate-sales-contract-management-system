@@ -1,5 +1,5 @@
 package domain.value.common
-
+/*
 import eu.timepit.refined._
 import eu.timepit.refined.collection._
 import eu.timepit.refined.string._
@@ -18,5 +18,20 @@ package object phone {
     def apply(rawPhoneNumber: String): Either[String, PhoneNumber] = {
       refineV[PhoneNumberRule](rawPhoneNumber).map(PhoneNumber(_))
     }
+  }
+}
+*/
+import library.model.{EntityValue, Error}
+
+case class PhoneNumber(value: String) extends EntityValue[String]
+
+object PhoneNumber extends Error {
+
+  def apply(rawPhoneNumber: String): Either[String, PhoneNumber] = {
+    Either.cond(
+      rawPhoneNumber.matches("^\\d{2,4}-\\d{2,4}-\\d{4}$"),
+      new PhoneNumber(rawPhoneNumber),
+      validationError[String](rawPhoneNumber)
+    )
   }
 }
