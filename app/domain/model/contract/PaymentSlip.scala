@@ -2,7 +2,11 @@ package domain.model.contract
 
 import java.util.UUID
 
+import cats.data.ValidatedNel
+import cats.implicits._
+
 import domain.model.contract.ContractInformation
+import domain.value.property.price._
 
 import io.estatico.newtype.macros.newtype
 
@@ -10,24 +14,27 @@ case class PaymentSlip (
   id:            PaymentSlip.Id,
   informationId: ContractInformation.Id,
   itemName:      PaymentSlip.ItemName,
-  money:         PaymentSlip.Money
+  price:         Price
 )
 
 object PaymentSlip {
   case class Id (value: UUID)
   @newtype case class ItemName(value: String)
-  @newtype case class Money(value: Int)
 
   def create(
     rawInfomationId: ContractInformation.Id,
     rawItemName:     String,
-    rawMoney:        Int
-  ): PaymentSlip = {
-    PaymentSlip (
-      id            = Id(UUID.randomUUID),
-      informationId = rawInfomationId,
-      itemName      = ItemName(rawItemName),
-      money         = Money(rawMoney)
-    ) 
+    rawPrice:        String
+  ): ValidatedNel[String, PaymentSlip] = {
+    (for {
+      price <- Price(rawPrice)
+    } yield {
+      PaymentSlip (
+        id            = Id(UUID.randomUUID),
+        informationId = rawInfomationId,
+        itemName      = ItemName(rawItemName),
+        price         = price
+      )
+   }).toValidatedNel
   }
 }
