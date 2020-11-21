@@ -5,7 +5,7 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
-import domain.value.common.age._
+import domain.value.common._
 import domain.value.common.email._
 import domain.value.common.name._
 import domain.value.common.phone._

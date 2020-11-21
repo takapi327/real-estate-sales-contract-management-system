@@ -10,7 +10,7 @@ import domain.value.property.price._
 import domain.value.property.structure._
 import domain.value.property.arrangementofrooms._
 
-import domain.value.common.age._
+import domain.value.common._
 
 case class Property(
   propertyId:         Property.Id,
