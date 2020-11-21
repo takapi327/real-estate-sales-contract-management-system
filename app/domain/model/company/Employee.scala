@@ -6,7 +6,6 @@ import cats.data.ValidatedNel
 import cats.implicits._
 
 import domain.value.common._
-import domain.value.common.name._
 import domain.value.common.phone._
 
 import io.estatico.newtype.macros.newtype
