@@ -7,9 +7,11 @@ import cats.implicits._
 
 import domain.value.common._
 
+import library.model.EntityEmbededId
+
 import io.estatico.newtype.macros.newtype
 
-import Employee._
+import Employee.LicenseNumber
 case class Employee (
   employeeId:    Employee.Id,
   firstName:     FirstName,
@@ -21,9 +23,8 @@ case class Employee (
   licenseNumber: Option[LicenseNumber]
 )
 
-object Employee {
+object Employee extends EntityEmbededId {
 
-  case class Id(value: UUID)
   @newtype case class LicenseNumber(value: Int)
 
   def create(
