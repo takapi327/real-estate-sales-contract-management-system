@@ -8,8 +8,10 @@ import cats.implicits._
 import domain.value.property._
 import domain.value.common._
 
+import library.model.EntityEmbededId
+
 case class Property(
-  propertyId:         Property.Id,
+  id:                 Property.Id,
   address:            Address,
   types:              Type,
   price:              Price,
@@ -18,9 +20,7 @@ case class Property(
   arrangementOfRooms: ArrangementOfRooms
 )
 
-object Property {
-
-  case class Id(value: UUID)
+object Property extends EntityEmbededId {
 
   def create(
     rawAddress:            String,
@@ -37,7 +37,7 @@ object Property {
       arrangementOfRooms <- ArrangementOfRooms(rawArrangementOfRooms)
     } yield {
       Property(
-        propertyId         = Id(UUID.randomUUID),
+        id                 = Id(UUID.randomUUID),
         address            = address,
         types              = Type.find(rawTypeCode),
         price              = price,
