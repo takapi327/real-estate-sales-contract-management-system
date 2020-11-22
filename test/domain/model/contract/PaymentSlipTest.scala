@@ -7,8 +7,7 @@ import cats.data.ValidatedNel
 import cats.data.Validated.{Invalid, Valid}
 import cats.implicits._        
                                
-import domain.model.property.Property
-import domain.value.property.price._
+import domain.model.property._
 
 class PaymentSlipTest extends FunSuite {
 
@@ -27,7 +26,7 @@ class PaymentSlipTest extends FunSuite {
       (for {
         property            <- property.toEither
         contractInformation =  ContractInformation.create(
-          rawPropertyId = property.propertyId,
+          rawPropertyId = property.id,
           rawContents   = "売買契約"
         )
         paymentSlip <- PaymentSlip.create(

@@ -5,16 +5,14 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
-import domain.value.property.types._
-import domain.value.property.price._
-import domain.value.property.structure._
-import domain.value.property.arrangementofrooms._
+import domain.value.property._
+import domain.value.common._
 
-import domain.value.common.age._
+import library.model.EntityEmbededId
 
 case class Property(
-  propertyId:         Property.Id,
-  address:            String,
+  id:                 Property.Id,
+  address:            Address,
   types:              Type,
   price:              Price,
   age:                Age,
@@ -22,9 +20,7 @@ case class Property(
   arrangementOfRooms: ArrangementOfRooms
 )
 
-object Property {
-
-  case class Id(value: UUID)
+object Property extends EntityEmbededId {
 
   def create(
     rawAddress:            String,
@@ -36,12 +32,13 @@ object Property {
   ): ValidatedNel[String, Property] = {
     (for {
       price              <- Price(rawPrice)
+      address            <- Address(rawAddress)
       age                <- Age(rawAge)
       arrangementOfRooms <- ArrangementOfRooms(rawArrangementOfRooms)
     } yield {
       Property(
-        propertyId         = Id(UUID.randomUUID),
-        address            = rawAddress,
+        id                 = Id(UUID.randomUUID),
+        address            = address,
         types              = Type.find(rawTypeCode),
         price              = price,
         age                = age,

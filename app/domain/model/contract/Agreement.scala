@@ -4,6 +4,8 @@ import java.util.UUID
 
 import domain.model.contract.ContractInformation
 
+import library.model.EntityEmbededId
+
 import io.estatico.newtype.macros.newtype
 
 case class Agreement (
@@ -12,8 +14,8 @@ case class Agreement (
   name:         Agreement.Name
 )
 
-object Agreement {
-  case class Id (value: UUID)
+object Agreement extends EntityEmbededId {
+
   @newtype case class Name(value: String)
 
   def create(

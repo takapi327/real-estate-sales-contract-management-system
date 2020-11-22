@@ -1,4 +1,4 @@
-package domain.value.property.arrangementofrooms
+package domain.value.property
 
 import org.scalatest._
 import org.scalatestplus.play._

@@ -1,4 +1,4 @@
-package domain.value.common.name
+package domain.value.common
 
 import org.scalatest._
 import org.scalatestplus.play._

@@ -12,7 +12,7 @@ class SubscriberTest extends FunSuite {
         rawLastName    = "テスト",
         rawAge         = 25,
         rawAddress     = "hogehoge",
-        rawPhoneNumber = "0901234567",
+        rawPhoneNumber = "090-123-4567",
         rawEmail       = "test@ezweb.ne.jp"
       ).isValid
     )
