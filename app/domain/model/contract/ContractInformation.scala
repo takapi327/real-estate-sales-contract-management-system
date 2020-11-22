@@ -4,6 +4,8 @@ import java.util.UUID
 
 import domain.model.property.Property
 
+import library.model.EntityEmbededId
+
 import io.estatico.newtype.macros.newtype
 
 case class ContractInformation (
@@ -12,15 +14,15 @@ case class ContractInformation (
   contents:   ContractInformation.Contents
 )
 
-object ContractInformation {
-  case class Id (value: UUID)
+object ContractInformation extends EntityEmbededId {
+
   @newtype case class Contents(value: String)
 
   def create(
     rawPropertyId: Property.Id,
     rawContents:   String
   ): ContractInformation = {
-    ContractInformation (
+    ContractInformation(
       id         = Id(UUID.randomUUID),
       propertyId = rawPropertyId,
       contents   = Contents(rawContents)

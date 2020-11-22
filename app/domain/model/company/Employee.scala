@@ -13,7 +13,7 @@ import io.estatico.newtype.macros.newtype
 
 import Employee.LicenseNumber
 case class Employee (
-  employeeId:    Employee.Id,
+  id:            Employee.Id,
   firstName:     FirstName,
   lastName:      LastName,
   age:           Age,
@@ -45,7 +45,7 @@ object Employee extends EntityEmbededId {
        email       <- Email(rawEmail)
     } yield {
       Employee (
-        employeeId    = Id(UUID.randomUUID),
+        id            = Id(UUID.randomUUID),
         firstName     = firstName,
         lastName      = lastName,
         age           = age,
