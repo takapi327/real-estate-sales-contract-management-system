@@ -35,7 +35,7 @@ object FirstName extends Error {
 
   def apply(rawFirstName: String): Either[String, FirstName] = {
     Either.cond(
-      rawFirstName.isEmpty,
+      rawFirstName.nonEmpty,
       new FirstName(rawFirstName),
       validationError[String](rawFirstName)
     )
@@ -47,7 +47,7 @@ object LastName extends Error {
 
   def apply(rawLastName: String): Either[String, LastName] = {
     Either.cond(
-      rawLastName.isEmpty,
+      rawLastName.nonEmpty,
       new LastName(rawLastName),
       validationError[String](rawLastName)
     )

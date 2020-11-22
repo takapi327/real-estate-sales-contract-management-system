@@ -1,3 +1,9 @@
 package library.model
 
-case class Entity()
+import java.util.UUID
+
+trait EntityEmbededId {
+
+  case class Id(value: UUID)
+
+}
