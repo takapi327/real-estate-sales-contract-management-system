@@ -1,0 +1,35 @@
+name: Deploy App
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Run sbt release
+        run: |
+          git config --global user.email i-happy-go-lucky-life0001@ezweb.ne.jp
+          git config --global user.name takapi327
+          sbt "release with-defaults skip-tests"
+
+      - name: Notify deployment
+        uses: 8398a7/action-slack@v3.8.0
+        with:
+          status: ${{ job.status }}
+          author_name: デプロイ処理結果
+          fields: repo,author,took,eventName,ref,workflow
+          username: 'Slack Notification Action'
+          icon_emoji: ':maruchan:'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
