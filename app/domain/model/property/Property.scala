@@ -10,7 +10,7 @@ import domain.value.common._
 
 case class Property(
   propertyId:         Property.Id,
-  address:            String,
+  address:            Address,
   types:              Type,
   price:              Price,
   age:                Age,
@@ -32,12 +32,13 @@ object Property {
   ): ValidatedNel[String, Property] = {
     (for {
       price              <- Price(rawPrice)
+      address            <- Address(rawAddress)
       age                <- Age(rawAge)
       arrangementOfRooms <- ArrangementOfRooms(rawArrangementOfRooms)
     } yield {
       Property(
         propertyId         = Id(UUID.randomUUID),
-        address            = rawAddress,
+        address            = address,
         types              = Type.find(rawTypeCode),
         price              = price,
         age                = age,

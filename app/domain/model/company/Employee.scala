@@ -15,7 +15,7 @@ case class Employee (
   firstName:     FirstName,
   lastName:      LastName,
   age:           Age,
-  address:       String,
+  address:       Address,
   phoneNumber:   PhoneNumber,
   email:         Email,
   licenseNumber: Option[LicenseNumber]
@@ -39,6 +39,7 @@ object Employee {
        firstName   <- FirstName(rawFirstName)
        lastName    <- LastName(rawLastName)
        age         <- Age(rawAge)
+       address     <- Address(rawAddress)
        phoneNumber <- PhoneNumber(rawPhoneNumber)
        email       <- Email(rawEmail)
     } yield {
@@ -47,7 +48,7 @@ object Employee {
         firstName     = firstName,
         lastName      = lastName,
         age           = age,
-        address       = rawAddress,
+        address       = address,
         phoneNumber   = phoneNumber,
         email         = email,
         licenseNumber = rawLicenseNumber.map(LicenseNumber(_))
