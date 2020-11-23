@@ -8,7 +8,7 @@ import cats.implicits._
 import domain.value.property._
 import domain.value.common._
 
-import library.model.EntityId
+import library.model.{Entity, EntityId}
 
 case class Property(
   id:                 Property.Id,
@@ -18,7 +18,7 @@ case class Property(
   age:                Age,
   structure:          Structure,
   arrangementOfRooms: ArrangementOfRooms
-)
+) extends Entity[Property.Id]
 
 object Property extends EntityId {
 

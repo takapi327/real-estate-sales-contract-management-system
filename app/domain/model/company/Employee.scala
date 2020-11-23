@@ -7,7 +7,7 @@ import cats.implicits._
 
 import domain.value.common._
 
-import library.model.EntityId
+import library.model.{Entity, EntityId}
 
 import io.estatico.newtype.macros.newtype
 
@@ -21,7 +21,7 @@ case class Employee (
   phoneNumber:   PhoneNumber,
   email:         Email,
   licenseNumber: Option[LicenseNumber]
-)
+) extends Entity[Employee.Id]
 
 object Employee extends EntityId {
 

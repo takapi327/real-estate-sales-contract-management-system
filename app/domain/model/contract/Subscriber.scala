@@ -6,7 +6,7 @@ import cats.data.ValidatedNel
 import cats.implicits._
 
 import domain.value.common._
-import library.model.EntityId
+import library.model.{Entity, EntityId}
 
 case class Subscriber(
   id:           Subscriber.Id,
@@ -16,7 +16,7 @@ case class Subscriber(
   address:      Address,
   phoneNumber:  PhoneNumber,
   email:        Email
-)
+) extends Entity[Subscriber.Id]
 
 object Subscriber extends EntityId {
 
