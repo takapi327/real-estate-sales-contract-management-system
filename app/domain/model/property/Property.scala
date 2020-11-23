@@ -8,7 +8,7 @@ import cats.implicits._
 import domain.value.property._
 import domain.value.common._
 
-import library.model.EntityEmbededId
+import library.model.EntityId
 
 case class Property(
   id:                 Property.Id,
@@ -20,7 +20,7 @@ case class Property(
   arrangementOfRooms: ArrangementOfRooms
 )
 
-object Property extends EntityEmbededId {
+object Property extends EntityId {
 
   def create(
     rawAddress:            String,

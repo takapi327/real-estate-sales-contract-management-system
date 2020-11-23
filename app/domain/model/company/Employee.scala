@@ -7,7 +7,7 @@ import cats.implicits._
 
 import domain.value.common._
 
-import library.model.EntityEmbededId
+import library.model.EntityId
 
 import io.estatico.newtype.macros.newtype
 
@@ -23,7 +23,7 @@ case class Employee (
   licenseNumber: Option[LicenseNumber]
 )
 
-object Employee extends EntityEmbededId {
+object Employee extends EntityId {
 
   @newtype case class LicenseNumber(value: Int)
 

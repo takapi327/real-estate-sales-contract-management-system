@@ -8,7 +8,7 @@ import cats.implicits._
 import domain.model.contract.ContractInformation
 import domain.value.property._
 
-import library.model.EntityEmbededId
+import library.model.EntityId
 
 import io.estatico.newtype.macros.newtype
 
@@ -19,7 +19,7 @@ case class PaymentSlip (
   price:         Price
 )
 
-object PaymentSlip extends EntityEmbededId {
+object PaymentSlip extends EntityId {
 
   @newtype case class ItemName(value: String)
 

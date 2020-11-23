@@ -6,7 +6,7 @@ import cats.data.ValidatedNel
 import cats.implicits._
 
 import domain.value.common._
-import library.model.EntityEmbededId
+import library.model.EntityId
 
 case class Subscriber(
   id:           Subscriber.Id,
@@ -18,7 +18,7 @@ case class Subscriber(
   email:        Email
 )
 
-object Subscriber extends EntityEmbededId {
+object Subscriber extends EntityId {
 
   def create(
     rawFirstName:   String,
