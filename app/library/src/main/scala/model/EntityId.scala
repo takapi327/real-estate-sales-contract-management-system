@@ -2,7 +2,7 @@ package library.model
 
 import java.util.UUID
 
-trait EntityEmbededId {
+trait EntityId {
 
   case class Id(value: UUID)
 
