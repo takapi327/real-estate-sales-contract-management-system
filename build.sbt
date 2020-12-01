@@ -9,10 +9,12 @@ scalaVersion := "2.13.3"
 
 libraryDependencies ++= Seq(
   guice,
-  "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
-  "org.typelevel"          %% "cats-core"          % "2.0.0",
-  "eu.timepit"             %% "refined"            % "0.9.13",
-  "io.estatico"            %% "newtype"            % "0.4.4"
+  "org.scalatestplus.play" %% "scalatestplus-play"   % "5.0.0" % Test,
+  "org.typelevel"          %% "cats-core"            % "2.0.0",
+  "eu.timepit"             %% "refined"              % "0.9.13",
+  "io.estatico"            %% "newtype"              % "0.4.4",
+  "mysql"                  %  "mysql-connector-java" % "8.0.12",
+  "com.typesafe.play"      %% "play-slick"           % "5.0.0"
 )
 
 addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVersion.full)
