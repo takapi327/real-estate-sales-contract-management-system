@@ -1,16 +1,25 @@
 package domain.value.common
 
-import library.model.{EntityValue, Error}
 
-case class Address(value: String) extends EntityValue[String]
+import eu.timepit.refined._
+import eu.timepit.refined.collection._
+import eu.timepit.refined.api.Refined
 
-object Address extends Error {
+import io.estatico.newtype.macros.newtype
 
-  def apply(rawAddress: String): Either[String, Address] = {
-    Either.cond(
-      rawAddress.nonEmpty,
-      new Address(rawAddress),
-      validationError[String](rawAddress)
-    )
+
+package object address {
+
+  type AddressRule   = collection.Empty
+  type AddressString = String Refined AddressRule
+
+  @newtype case class Address(value: AddressString) {
+    def v = value.value
+  }
+
+  object Address {
+    def apply(rawAddress: String): Either[String, Address] = {
+      refineV[AddressRule](rawAddress).map(Address(_))
+    }
   }
 }
