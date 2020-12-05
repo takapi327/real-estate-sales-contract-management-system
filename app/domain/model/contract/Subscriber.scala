@@ -5,7 +5,12 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
-import domain.value.common._
+import domain.value.common.age.Age
+import domain.value.common.phone.PhoneNumber
+import domain.value.common.name._
+import domain.value.common.email.Email
+import domain.value.common.address.Address
+
 import library.model.{Entity, EntityId}
 
 case class Subscriber(
