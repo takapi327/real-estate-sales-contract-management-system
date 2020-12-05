@@ -5,8 +5,12 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
+import domain.value.common.age.Age
+import domain.value.common.address.Address
+
 import domain.value.property._
-import domain.value.common._
+import domain.value.property.price.Price
+import domain.value.property.arrangementofrooms.ArrangementOfRooms
 
 import library.model.{Entity, EntityId}
 
