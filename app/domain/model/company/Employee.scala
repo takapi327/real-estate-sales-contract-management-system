@@ -13,6 +13,11 @@ import domain.value.common.email.Email
 
 import library.model.{Entity, EntityId}
 
+import eu.timepit.refined._
+import eu.timepit.refined.collection._
+import eu.timepit.refined.string._
+import eu.timepit.refined.api.Refined
+
 import io.estatico.newtype.macros.newtype
 
 import Employee.LicenseNumber
@@ -29,7 +34,18 @@ case class Employee (
 
 object Employee extends EntityId {
 
-  @newtype case class LicenseNumber(value: Int)
+  type LicenseNumberRule   = MatchesRegex[W.`"[0-9]+"`.T]
+  type LicenseNumberString = String Refined LicenseNumberRule
+
+  @newtype case class LicenseNumber(value: LicenseNumberString) {
+    def v = value.value
+  }
+
+  object LicenseNumber {
+    def apply(rawLicenseNumber: String): Either[String, LicenseNumber] = {
+      refineV[LicenseNumberRule](rawLicenseNumber).map(LicenseNumber(_))
+    }
+  }
 
   def create(
     rawFirstName:     String,
@@ -38,15 +54,19 @@ object Employee extends EntityId {
     rawAddress:       String,
     rawPhoneNumber:   String,
     rawEmail:         String,
-    rawLicenseNumber: Option[Int]
+    rawLicenseNumber: Option[String]
   ): ValidatedNel[String, Employee] = {
     (for {
-       firstName   <- FirstName(rawFirstName)
-       lastName    <- LastName(rawLastName)
-       age         <- Age(rawAge)
-       address     <- Address(rawAddress)
-       phoneNumber <- PhoneNumber(rawPhoneNumber)
-       email       <- Email(rawEmail)
+       firstName     <- FirstName(rawFirstName)
+       lastName      <- LastName(rawLastName)
+       age           <- Age(rawAge)
+       address       <- Address(rawAddress)
+       phoneNumber   <- PhoneNumber(rawPhoneNumber)
+       email         <- Email(rawEmail)
+       licenseNumber <- rawLicenseNumber match {
+         case Some(v) => LicenseNumber(v)
+         case None    => Left("Nothing")
+       }
     } yield {
       Employee (
         id            = Id(UUID.randomUUID),
@@ -56,7 +76,7 @@ object Employee extends EntityId {
         address       = address,
         phoneNumber   = phoneNumber,
         email         = email,
-        licenseNumber = rawLicenseNumber.map(LicenseNumber(_))
+        licenseNumber = licenseNumber.some
       )
     }).toValidatedNel
   }
