@@ -8,4 +8,4 @@ abstract class SlickTable[M](
   tag:       Tag,
   tableName: String
 ) extends Table[M](tag, tableName)
-  with    RefinedColumnType
+  with    SlickColumnType
