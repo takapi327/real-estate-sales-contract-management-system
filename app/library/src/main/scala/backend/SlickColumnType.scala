@@ -6,10 +6,10 @@ import library.model.EntityValue
 
 import java.util.UUID
 
-trait RefinedColumnType extends SlickDatabaseConfig {
+trait SlickColumnType extends SlickDatabaseConfig {
   import api._
 
-  implicit def ValueIntType[T <: EntityValue[UUID]](implicit tag: ClassTag[T]) = {
+  implicit def ValueUUIDType[T <: EntityValue[UUID]](implicit tag: ClassTag[T]) = {
     MappedColumnType.base[T, String](
       v   => v.value.toString,
       str => tag.runtimeClass
@@ -18,4 +18,5 @@ trait RefinedColumnType extends SlickDatabaseConfig {
        .asInstanceOf[T]
     )
   }
+
 }
