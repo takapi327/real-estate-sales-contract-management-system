@@ -5,10 +5,14 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
-import domain.value.property._
-import domain.value.common._
+import domain.value.common.age.Age
+import domain.value.common.address.Address
 
-import library.model.EntityEmbededId
+import domain.value.property._
+import domain.value.property.price.Price
+import domain.value.property.arrangementofrooms.ArrangementOfRooms
+
+import library.model.{Entity, EntityId}
 
 case class Property(
   id:                 Property.Id,
@@ -18,9 +22,9 @@ case class Property(
   age:                Age,
   structure:          Structure,
   arrangementOfRooms: ArrangementOfRooms
-)
+) extends Entity[Property.Id]
 
-object Property extends EntityEmbededId {
+object Property extends EntityId {
 
   def create(
     rawAddress:            String,

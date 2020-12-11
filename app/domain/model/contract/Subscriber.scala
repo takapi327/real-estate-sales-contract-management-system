@@ -5,8 +5,13 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
-import domain.value.common._
-import library.model.EntityEmbededId
+import domain.value.common.age.Age
+import domain.value.common.phone.PhoneNumber
+import domain.value.common.name._
+import domain.value.common.email.Email
+import domain.value.common.address.Address
+
+import library.model.{Entity, EntityId}
 
 case class Subscriber(
   id:           Subscriber.Id,
@@ -16,9 +21,9 @@ case class Subscriber(
   address:      Address,
   phoneNumber:  PhoneNumber,
   email:        Email
-)
+) extends Entity[Subscriber.Id]
 
-object Subscriber extends EntityEmbededId {
+object Subscriber extends EntityId {
 
   def create(
     rawFirstName:   String,
