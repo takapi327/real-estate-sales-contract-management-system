@@ -8,6 +8,6 @@ trait EmployeeRepository {
 
   def add(employee: Employee): Future[Employee]
 
-  def findByEmployeeId(employeeId: Employee.Id): Future[Option[Employee]]
+  def findById(id: Employee.Id): Future[Option[Employee]]
 
 }

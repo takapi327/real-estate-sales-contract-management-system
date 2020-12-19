@@ -8,6 +8,6 @@ trait SubscriberRepository {
 
   def add(subscriber: Subscriber): Future[Subscriber]
 
-  def findBySubscriberId(subscriberId: Subscriber.Id): Future[Option[Subscriber]]
+  def findById(id: Subscriber.Id): Future[Option[Subscriber]]
 
 }
