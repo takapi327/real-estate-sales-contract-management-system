@@ -6,8 +6,6 @@ import eu.timepit.refined.api.Refined
 
 import io.estatico.newtype.macros.newtype
 
-import library.model.{EntityValue, Error}
-
 package object age {
 
   type AgeRule = Interval.OpenClosed[0, 150]

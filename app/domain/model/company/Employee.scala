@@ -1,13 +1,14 @@
 package domain.model.company
 
 import java.util.UUID
+import java.time.LocalDate
 
 import cats.data.ValidatedNel
 import cats.implicits._
 
 import domain.value.common.name._
 import domain.value.common.address.Address
-import domain.value.common.age.Age
+import domain.value.common.BirthDate
 import domain.value.common.phone.PhoneNumber
 import domain.value.common.email.Email
 
@@ -25,7 +26,7 @@ case class Employee (
   id:            Employee.Id,
   firstName:     FirstName,
   lastName:      LastName,
-  age:           Age,
+  birthDate:     BirthDate,
   address:       Address,
   phoneNumber:   PhoneNumber,
   email:         Email,
@@ -50,7 +51,7 @@ object Employee extends EntityId {
   def create(
     rawFirstName:     String,
     rawLastName:      String,
-    rawAge:           Int,
+    rawBirthDate:     LocalDate,
     rawAddress:       String,
     rawPhoneNumber:   String,
     rawEmail:         String,
@@ -59,7 +60,6 @@ object Employee extends EntityId {
     (for {
        firstName     <- FirstName(rawFirstName)
        lastName      <- LastName(rawLastName)
-       age           <- Age(rawAge)
        address       <- Address(rawAddress)
        phoneNumber   <- PhoneNumber(rawPhoneNumber)
        email         <- Email(rawEmail)
@@ -72,7 +72,7 @@ object Employee extends EntityId {
         id            = Id(UUID.randomUUID),
         firstName     = firstName,
         lastName      = lastName,
-        age           = age,
+        birthDate     = BirthDate(rawBirthDate),
         address       = address,
         phoneNumber   = phoneNumber,
         email         = email,

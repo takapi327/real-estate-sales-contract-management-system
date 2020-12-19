@@ -1,10 +1,11 @@
 package library.backend
 
+import java.util.UUID
+import java.time.LocalDate
+
 import scala.reflect.ClassTag
 
 import library.model.EntityValue
-
-import java.util.UUID
 
 trait SlickColumnType extends SlickDatabaseConfig {
   import api._
@@ -19,4 +20,13 @@ trait SlickColumnType extends SlickDatabaseConfig {
     )
   }
 
+  implicit def ValueBirthDate[T <: EntityValue[LocalDate]](implicit tag: ClassTag[T]) = {
+    MappedColumnType.base[T, LocalDate](
+      vo  => vo.value,
+      str => tag.runtimeClass
+        .getConstructor(classOf[LocalDate])
+        .newInstance(str)
+        .asInstanceOf[T]
+    )
+  }
 }
