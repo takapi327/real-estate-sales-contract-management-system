@@ -11,7 +11,7 @@ trait SlickColumnType extends SlickDatabaseConfig {
 
   implicit def ValueUUIDType[T <: EntityValue[UUID]](implicit tag: ClassTag[T]) = {
     MappedColumnType.base[T, String](
-      v   => v.value.toString,
+      vo  => vo.value.toString,
       str => tag.runtimeClass
        .getConstructor(classOf[UUID])
        .newInstance(UUID.fromString(str))

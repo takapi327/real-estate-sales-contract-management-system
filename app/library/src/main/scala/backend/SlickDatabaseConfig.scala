@@ -1,7 +1,6 @@
 package library.backend
 
 import slick.jdbc.JdbcProfile
-import slick.basic.DatabaseConfig
 
 trait SlickDatabaseConfig extends RefinedProfile {
 
@@ -10,6 +9,7 @@ trait SlickDatabaseConfig extends RefinedProfile {
   import api._
 
   val db: JdbcProfile#Backend#Database = Database.forConfig("database")
+
 }
 
 object SlickDatabaseConfig extends SlickDatabaseConfig
