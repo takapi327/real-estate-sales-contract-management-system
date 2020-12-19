@@ -3,7 +3,6 @@ package domain.repository
 import scala.concurrent.Future
 
 import domain.model.contract._
-import domain.model.company._
 
 trait ContractOfBuyRepository {
 
