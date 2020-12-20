@@ -5,7 +5,7 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
-import domain.value.common.age.Age
+import domain.value.common.birthDate._
 import domain.value.common.address.Address
 
 import domain.value.property._
@@ -19,7 +19,9 @@ case class Property(
   address:            Address,
   types:              Type,
   price:              Price,
-  age:                Age,
+  birthYear:          Year,
+  birthMonth:         Month,
+  birthDay:           Day,
   structure:          Structure,
   arrangementOfRooms: ArrangementOfRooms
 ) extends Entity[Property.Id]
@@ -30,14 +32,18 @@ object Property extends EntityId {
     rawAddress:            String,
     rawTypeCode:           Int,
     rawPrice:              String,
-    rawAge:                Int,
+    rawBirthYear:          Int,
+    rawBirthMonth:         Int,
+    rawBirthDay:           Int,
     rawStructureCode:      Int,
     rawArrangementOfRooms: String
   ): ValidatedNel[String, Property] = {
     (for {
       price              <- Price(rawPrice)
       address            <- Address(rawAddress)
-      age                <- Age(rawAge)
+      birthYear          <- Year(rawBirthYear)
+      birthMonth         <- Month(rawBirthMonth)
+      birthDay           <- Day(rawBirthDay)
       arrangementOfRooms <- ArrangementOfRooms(rawArrangementOfRooms)
     } yield {
       Property(
@@ -45,7 +51,9 @@ object Property extends EntityId {
         address            = address,
         types              = Type.find(rawTypeCode),
         price              = price,
-        age                = age,
+        birthYear          = birthYear,
+        birthMonth         = birthMonth,
+        birthDay           = birthDay,
         structure          = Structure.find(rawStructureCode),
         arrangementOfRooms = arrangementOfRooms
       )

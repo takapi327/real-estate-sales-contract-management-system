@@ -7,7 +7,7 @@ import cats.implicits._
 
 import domain.value.common.name._
 import domain.value.common.address.Address
-import domain.value.common.age.Age
+import domain.value.common.birthDate._
 import domain.value.common.phone.PhoneNumber
 import domain.value.common.email.Email
 
@@ -25,7 +25,9 @@ case class Employee (
   id:            Employee.Id,
   firstName:     FirstName,
   lastName:      LastName,
-  age:           Age,
+  birthYear:     Year,
+  birthMonth:    Month,
+  birthDay:      Day,
   address:       Address,
   phoneNumber:   PhoneNumber,
   email:         Email,
@@ -50,7 +52,9 @@ object Employee extends EntityId {
   def create(
     rawFirstName:     String,
     rawLastName:      String,
-    rawAge:           Int,
+    rawBirthYear:     Int,
+    rawBirthMonth:    Int,
+    rawBirthDay:      Int,
     rawAddress:       String,
     rawPhoneNumber:   String,
     rawEmail:         String,
@@ -59,7 +63,9 @@ object Employee extends EntityId {
     (for {
        firstName     <- FirstName(rawFirstName)
        lastName      <- LastName(rawLastName)
-       age           <- Age(rawAge)
+       birthYear     <- Year(rawBirthYear)
+       birthMonth    <- Month(rawBirthMonth)
+       birthDay      <- Day(rawBirthDay)
        address       <- Address(rawAddress)
        phoneNumber   <- PhoneNumber(rawPhoneNumber)
        email         <- Email(rawEmail)
@@ -72,7 +78,9 @@ object Employee extends EntityId {
         id            = Id(UUID.randomUUID),
         firstName     = firstName,
         lastName      = lastName,
-        age           = age,
+        birthYear     = birthYear,
+        birthMonth    = birthMonth,
+        birthDay      = birthDay,
         address       = address,
         phoneNumber   = phoneNumber,
         email         = email,
