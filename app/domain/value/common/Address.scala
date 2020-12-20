@@ -10,7 +10,7 @@ import io.estatico.newtype.macros.newtype
 
 package object address {
 
-  type AddressRule   = collection.Empty
+  type AddressRule   = collection.NonEmpty
   type AddressString = String Refined AddressRule
 
   @newtype case class Address(value: AddressString) {
