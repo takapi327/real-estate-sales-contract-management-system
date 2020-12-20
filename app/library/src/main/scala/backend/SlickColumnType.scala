@@ -1,10 +1,10 @@
 package library.backend
 
+import java.util.UUID
+
 import scala.reflect.ClassTag
 
 import library.model.EntityValue
-
-import java.util.UUID
 
 trait SlickColumnType extends SlickDatabaseConfig {
   import api._
