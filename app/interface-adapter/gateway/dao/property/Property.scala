@@ -38,7 +38,7 @@ class PropertyTable(tag: Tag) extends SlickTable[Property](tag, "property") {
       Structure.find(x._6), ArrangementOfRooms(x._7)
     ),
     (v: Property) => Property.unapply(v).map {t => (
-      t._1,       t._2.value, t._3.code, t._4.value, t._5,
+      t._1,      t._2.value, t._3.code, t._4.value, t._5,
       t._6.code, t._7.value
     )}
   )
