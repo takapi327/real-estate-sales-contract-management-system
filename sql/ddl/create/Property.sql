@@ -5,7 +5,7 @@ CREATE TABLE `property` (
   `address`               VARCHAR(255)          NOT NULL,
   `types`                 TINYINT      UNSIGNED NOT NULL,
   `price`                 BIGINT(20)   UNSIGNED NOT NULL,
-  `age`                   BIGINT(20)   UNSIGNED NOT NULL,
+  `date_built`            DATE                  NOT NULL,
   `structure`             TINYINT      UNSIGNED NOT NULL,
   `arrangement_of_rooms`  TINYINT      UNSIGNED NOT NULL,
   PRIMARY KEY (`property_id`)
