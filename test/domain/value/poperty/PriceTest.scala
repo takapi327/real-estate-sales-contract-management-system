@@ -1,4 +1,4 @@
-package domain.value.property
+package domain.value.property.price
 
 import org.scalatest._
 import org.scalatestplus.play._

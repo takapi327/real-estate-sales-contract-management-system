@@ -1,5 +1,7 @@
 package domain.model.contract
 
+import java.time.LocalDate
+
 import org.scalatest._
 import org.scalatestplus.play._
 
@@ -65,7 +67,9 @@ class ContractTest extends FunSuite {
   lazy val subscriber = Subscriber.create(
     rawFirstName   = "test",
     rawLastName    = "テスト",
-    rawAge         = 25,
+    rawBirthYear   = 1995,
+    rawBirthMonth  = 7,
+    rawBirthDay    = 15,
     rawAddress     = "hogehoge",
     rawPhoneNumber = "090-123-4567",
     rawEmail       = "test@ezweb.ne.jp"
@@ -74,7 +78,9 @@ class ContractTest extends FunSuite {
   lazy val employee = Employee.create(
     rawFirstName     = "test",
     rawLastName      = "テスト",
-    rawAge           = 25,
+    rawBirthYear   = 1995,
+    rawBirthMonth  = 7,
+    rawBirthDay    = 15,
     rawAddress       = "hogehoge",
     rawPhoneNumber   = "090-1234-5678",
     rawEmail         = "test@ezweb.ne.jp",
@@ -85,7 +91,7 @@ class ContractTest extends FunSuite {
     rawAddress            = "hogehoge",
     rawTypeCode           = 2,
     rawPrice              = "20,000,000",
-    rawAge                = 40,
+    rawDateBuilt          = LocalDate.now(),
     rawStructureCode      = 4,
     rawArrangementOfRooms = "3LDK"
   )

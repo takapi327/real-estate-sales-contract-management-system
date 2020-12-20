@@ -1,5 +1,7 @@
 package domain.model.contract
 
+import java.time.LocalDate
+
 import org.scalatest._
 import org.scalatestplus.play._
 
@@ -17,7 +19,7 @@ class PaymentSlipTest extends FunSuite {
       rawAddress            = "hogehoge",
       rawTypeCode           = 2,
       rawPrice              = "200,000,000,000",
-      rawAge                = 59,
+      rawDateBuilt          = LocalDate.now(),
       rawStructureCode      = 4,
       rawArrangementOfRooms = "3LDK"
     )

@@ -10,7 +10,9 @@ class EmployeeTest extends FunSuite {
       Employee.create(
         rawFirstName     = "test",
         rawLastName      = "テスト",
-        rawAge           = 25,
+        rawBirthYear     = 1995,
+        rawBirthMonth    = 7,
+        rawBirthDay      = 15,
         rawAddress       = "hogehoge",
         rawPhoneNumber   = "090-1234-5678",
         rawEmail         = "test@ezweb.ne.jp",
@@ -24,11 +26,13 @@ class EmployeeTest extends FunSuite {
       Employee.create(
         rawFirstName     = "test",
         rawLastName      = "テスト",
-        rawAge           = 25,
+        rawBirthYear     = 1995,
+        rawBirthMonth    = 7,
+        rawBirthDay      = 15,
         rawAddress       = "hogehoge",
         rawPhoneNumber   = "090-1234-5678",
         rawEmail         = "test@ezweb.ne.jp",
-        rawLicenseNumber = Some(378792)
+        rawLicenseNumber = Some("378792")
       ).isValid
     )
   }

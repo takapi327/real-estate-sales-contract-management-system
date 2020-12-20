@@ -10,7 +10,9 @@ class SubscriberTest extends FunSuite {
       Subscriber.create(
         rawFirstName   = "test",
         rawLastName    = "テスト",
-        rawAge         = 25,
+        rawBirthYear   = 1995,
+        rawBirthMonth  = 7,
+        rawBirthDay    = 15,
         rawAddress     = "hogehoge",
         rawPhoneNumber = "090-123-4567",
         rawEmail       = "test@ezweb.ne.jp"
