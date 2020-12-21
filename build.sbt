@@ -7,7 +7,9 @@ scalaVersion := "2.13.3"
 
 libraryDependencies ++= Seq(
   guice,
-  "org.scalatestplus.play" %% "scalatestplus-play"   % "5.0.0" % Test,
+  "org.scalatestplus.play" %% "scalatestplus-play"   % "5.1.0",
+  "org.scalactic"          %% "scalactic"            % "3.2.2",
+  "org.scalatest"          %% "scalatest"            % "3.2.2",
   "org.typelevel"          %% "cats-core"            % "2.0.0",
   "eu.timepit"             %% "refined"              % "0.9.13",
   "be.venneborg"           %% "slick-refined"        % "0.5.0",
