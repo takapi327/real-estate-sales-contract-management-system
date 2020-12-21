@@ -14,7 +14,7 @@ class SubscriberTest extends FunSuite {
         rawBirthMonth  = 7,
         rawBirthDay    = 15,
         rawAddress     = "hogehoge",
-        rawPhoneNumber = "090-123-4567",
+        rawPhoneNumber = "0901234567",
         rawEmail       = "test@ezweb.ne.jp"
       ).isValid
     )
