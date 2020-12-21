@@ -69,10 +69,7 @@ object Employee extends EntityId {
        address       <- Address(rawAddress)
        phoneNumber   <- PhoneNumber(rawPhoneNumber)
        email         <- Email(rawEmail)
-       licenseNumber <- rawLicenseNumber match {
-         case Some(v) => LicenseNumber(v)
-         case None    => Left("Nothing")
-       }
+      licenseNumber  =  rawLicenseNumber.flatMap(f => LicenseNumber(f).toOption)
     } yield {
       Employee (
         id            = Id(UUID.randomUUID),
@@ -84,7 +81,7 @@ object Employee extends EntityId {
         address       = address,
         phoneNumber   = phoneNumber,
         email         = email,
-        licenseNumber = licenseNumber.some
+        licenseNumber = licenseNumber
       )
     }).toValidatedNel
   }

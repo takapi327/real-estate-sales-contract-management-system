@@ -14,7 +14,7 @@ class EmployeeTest extends FunSuite {
         rawBirthMonth    = 7,
         rawBirthDay      = 15,
         rawAddress       = "hogehoge",
-        rawPhoneNumber   = "090-1234-5678",
+        rawPhoneNumber   = "09012345678",
         rawEmail         = "test@ezweb.ne.jp",
         rawLicenseNumber = None
       ).isValid
@@ -30,7 +30,7 @@ class EmployeeTest extends FunSuite {
         rawBirthMonth    = 7,
         rawBirthDay      = 15,
         rawAddress       = "hogehoge",
-        rawPhoneNumber   = "090-1234-5678",
+        rawPhoneNumber   = "09012345678",
         rawEmail         = "test@ezweb.ne.jp",
         rawLicenseNumber = Some("378792")
       ).isValid
