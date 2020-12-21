@@ -71,20 +71,20 @@ class ContractTest extends FunSuite {
     rawBirthMonth  = 7,
     rawBirthDay    = 15,
     rawAddress     = "hogehoge",
-    rawPhoneNumber = "090-123-4567",
+    rawPhoneNumber = "0901234567",
     rawEmail       = "test@ezweb.ne.jp"
   )
 
   lazy val employee = Employee.create(
     rawFirstName     = "test",
     rawLastName      = "テスト",
-    rawBirthYear   = 1995,
-    rawBirthMonth  = 7,
-    rawBirthDay    = 15,
+    rawBirthYear     = 1995,
+    rawBirthMonth    = 7,
+    rawBirthDay      = 15,
     rawAddress       = "hogehoge",
-    rawPhoneNumber   = "090-1234-5678",
+    rawPhoneNumber   = "09012345678",
     rawEmail         = "test@ezweb.ne.jp",
-    rawLicenseNumber = None
+    rawLicenseNumber = Some("34535")
   )
 
   lazy val property = Property.create(
