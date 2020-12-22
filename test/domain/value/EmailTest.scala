@@ -3,37 +3,37 @@ package domain.value.common.email
 import org.scalatest._
 import org.scalatestplus.play._
 
-class EmailTest extends FunSuite {
+class EmailTest extends PlaySpec {
 
-  test("If the email address is test@ezweb.ne.jp, it will be stored in Right") {
-    assert(Email("test@ezweb.ne.jp").isRight)
+  "If the email address is test@ezweb.ne.jp, it will be stored in Right" in {
+    Email("test@ezweb.ne.jp").isRight mustBe true
   }
 
-  test("If the email address is test@ezweb.jp, it will be stored in Right") {
-    assert(Email("test@ezweb.jp").isRight)
+  "If the email address is test@ezweb.jp, it will be stored in Right" in {
+    Email("test@ezweb.jp").isRight mustBe true
   }
 
-  test("If the email address is test@ezweb, it will be stored in Left") {
-    assert(Email("test@ezweb").isLeft)
+  "If the email address is test@ezweb, it will be stored in Left" in {
+    Email("test@ezweb").isLeft mustBe true
   }
 
-  test("If the email address is testezweb.ne.jp, it will be stored in Left") {
-    assert(Email("testezweb.ne.jp").isLeft)
+  "If the email address is testezweb.ne.jp, it will be stored in Left" in {
+    Email("testezweb.ne.jp").isLeft mustBe true
   }
 
-  test("If the email address is @ezweb, it will be stored in Left") {
-    assert(Email("@ezweb").isLeft)
+  "If the email address is @ezweb, it will be stored in Left" in {
+    Email("@ezweb").isLeft mustBe true
   }
 
-  test("if the email address is @, it will be stored in left") {
-    assert(Email("@").isLeft)
+  "if the email address is @, it will be stored in left" in {
+    Email("@").isLeft mustBe true
   }
 
-  test("if the email address is Empty, it will be stored in left") {
-    assert(Email("").isLeft)
+  "if the email address is Empty, it will be stored in left" in {
+    Email("").isLeft mustBe true
   }
 
-  test("if the email address is テスト@ezweb.ne.jp, it will be stored in left") {
-    assert(Email("テスト@ezweb.ne.jp").isLeft)
+  "if the email address is テスト@ezweb.ne.jp, it will be stored in left" in {
+    Email("テスト@ezweb.ne.jp").isLeft mustBe true
   }
 }
