@@ -8,9 +8,9 @@ import org.scalatestplus.play._
 import domain.model.company.Employee
 import domain.model.property.Property
 
-class ContractTest extends FunSuite {
+class ContractTest extends PlaySpec {
 
-  test("If you pass the ContractOfSale model arguments correctly, they will be stored in Right") {
+  "If you pass the ContractOfSale model arguments correctly, they will be stored in Right" in {
 
     val contractOfSale = for {
 
@@ -32,12 +32,10 @@ class ContractTest extends FunSuite {
       )
     }
 
-    assert(
-      contractOfSale.isRight
-    )
+    contractOfSale.isRight mustBe true
   }
 
-  test("If you pass the ContractOfBuy model arguments correctly, they will be stored in Right") {
+  "If you pass the ContractOfBuy model arguments correctly, they will be stored in Right" in {
 
     val contractOfBuy = for {
 
@@ -59,9 +57,7 @@ class ContractTest extends FunSuite {
       )
     }
 
-    assert(
-      contractOfBuy.isRight
-    )
+    contractOfBuy.isRight mustBe true
   }
 
   lazy val subscriber = Subscriber.create(
