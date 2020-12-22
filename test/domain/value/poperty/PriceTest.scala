@@ -3,32 +3,32 @@ package domain.value.property.price
 import org.scalatest._
 import org.scalatestplus.play._
 
-class PriceTest extends FunSuite {
-  test("If the amount is 1, it is stored in Right") {
-    assert(Price("1").isRight)
+class PriceTest extends PlaySpec {
+  "If the amount is 1, it is stored in Right" in {
+    Price("1").isRight mustBe true
   }
 
-  test("If the amount is 100, it is stored in Right") {
-    assert(Price("100").isRight)
+  "If the amount is 100, it is stored in Right" in {
+    Price("100").isRight mustBe true
   }
 
-  test("If the amount is 10, it is stored in Right") {
-    assert(Price("10").isRight)
+  "If the amount is 10, it is stored in Right" in {
+    Price("10").isRight mustBe true
   }
 
-  test("If the amount is 1,000, it is stored in Right") {
-    assert(Price("1,000").isRight)
+  "If the amount is 1,000, it is stored in Right" in {
+    Price("1,000").isRight mustBe true
   }
 
-  test("If the amount is 1,000,000,000,000, it is stored in Right") {
-    assert(Price("1,000,000,000,000").isRight)
+  "If the amount is 1,000,000,000,000, it is stored in Right" in {
+    Price("1,000,000,000,000").isRight mustBe true
   }
 
-  test("If the amount is 1000000000000, it is stored in Left") {
-    assert(Price("1000000000000").isLeft)
+  "If the amount is 1000000000000, it is stored in Left" in {
+    Price("1000000000000").isRight mustBe false
   }
 
-  test("If the amount is test, it is stored in Left") {
-    assert(Price("test").isLeft)
+  "If the amount is test, it is stored in Left" in {
+    Price("test").isRight mustBe false
   }
 }
