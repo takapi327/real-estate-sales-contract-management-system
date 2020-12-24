@@ -20,14 +20,14 @@ class EmployeeRepositoryImpl @Inject()(
   lazy val employeeTable = TableQuery[EmployeeTable]
 
   def add(employee: Employee): Future[Employee] = {
-    db.run(
+    db.run {
       (employeeTable returning employeeTable) += employee
-    )
+    }
   }
 
   def findById(id: Employee.Id): Future[Option[Employee]] = {
-    db.run(
+    db.run {
       employeeTable.filter(_.id === id).result.headOption
-    )
+    }
   }
 }
