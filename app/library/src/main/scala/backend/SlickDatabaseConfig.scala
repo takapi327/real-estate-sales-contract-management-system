@@ -8,7 +8,7 @@ trait SlickDatabaseConfig extends RefinedProfile {
 
   import api._
 
-  val db: JdbcProfile#Backend#Database = Database.forConfig("database")
+  val db: JdbcProfile#Backend#Database = Database.forConfig("slick.dbs.default.db")
 
 }
 
