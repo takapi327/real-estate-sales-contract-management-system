@@ -1,7 +1,7 @@
 --- !Ups
 
 CREATE TABLE `property` (
-  `property_id`           BIGINT(20)   UNSIGNED NOT NULL,
+  `property_id`           VARCHAR(255)          NOT NULL,
   `address`               VARCHAR(255)          NOT NULL,
   `types`                 TINYINT      UNSIGNED NOT NULL,
   `price`                 BIGINT(20)   UNSIGNED NOT NULL,
