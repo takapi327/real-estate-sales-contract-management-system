@@ -5,7 +5,6 @@ import scala.concurrent.ExecutionContext
 import akka.Done
 import play.api.Application
 import play.api.inject.guice.GuiceApplicationBuilder
-//import play.api.db.slick.DatabaseConfigProvider
 
 import org.scalatest.BeforeAndAfterAll
 import org.scalatest.concurrent.ScalaFutures
