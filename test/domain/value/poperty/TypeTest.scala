@@ -8,129 +8,129 @@ class TypeTest extends PlaySpec {
   /**
    * LAND Test
    */
-  //test("The LAND object upperName is the same as the specified string") {
-  //  assert(Type.LAND.upperName == "LAND")
-  //}
+  "The LAND object upperName is the same as the specified string" in {
+    Type.LAND.upperName mustBe "LAND"
+  }
 
-  //test("The LAND object upperName is not the same as the specified string") {
-  //  assert(Type.LAND.upperName != "DETACHED_HOUSE_CODE")
-  //}
+  "The LAND object upperName is not the same as the specified string" in {
+    Type.LAND.upperName must not be "DETACHED_HOUSE_CODE"
+  }
 
-  //test("The LAND object lowerName is the same as the specified string") {
-  //  assert(Type.LAND.lowerName == "land")
-  //}
+  "The LAND object lowerName is the same as the specified string" in {
+    Type.LAND.lowerName mustBe "land"
+  }
 
-  //test("The LAND object lowerName is not the same as the specified string") {
-  //  assert(Type.LAND.lowerName != "detached_house")
-  //}
+  "The LAND object lowerName is not the same as the specified string" in {
+    Type.LAND.lowerName must not be "detached_house"
+  }
 
-  //test("Land code will be the same as the specified number") {
-  //  assert(Type.LAND.code == 0)
-  //}
+  "Land code will be the same as the specified number" in {
+    Type.LAND.code mustBe 0
+  }
 
-  //test("Land code will not be the same as the specified number") {
-  //  assert(Type.LAND.code != 1)
-  //}
+  "Land code will not be the same as the specified number" in {
+    Type.LAND.code must not be 1
+  }
 
-  //test("The LAND object nameSet is the same as the specified name set") {
-  //  assert(Type.LAND.nameSet == ("LAND", "land", "土地"))
-  //}
+  "The LAND object nameSet is the same as the specified name set" in {
+    Type.LAND.nameSet mustBe ("LAND", "land", "土地")
+  }
 
-  //test("The LAND object detailName is not the same as the specified name set") {
-  //  assert(Type.LAND.nameSet != ("DETACHED_HOUSE", "detached_houde", "戸建て"))
-  //}
+  "The LAND object detailName is not the same as the specified name set" in {
+    Type.LAND.nameSet must not be ("DETACHED_HOUSE", "detached_houde", "戸建て")
+  }
 
-  //test("The Type obtained from the Type search is the same as the specified LAND") {
-  //  assert(Type.find(0) == Type.LAND)
-  //}
+  "The Type obtained from the Type search is the same as the specified LAND" in {
+    Type.find(0) mustBe Type.LAND
+  }
 
-  //test("The Type obtained from the Type search is not the same as the specified LAND.") {
-  //  assert(Type.find(1) != Type.LAND)
-  //}
+  "The Type obtained from the Type search is not the same as the specified LAND." in {
+    Type.find(1) must not be Type.LAND
+  }
 
-  ///**
-  // * DETACHED_HOUSE Test
-  // */
-  //test("The DETACHED_HOUSE object upperName is the same as the specified string") {
-  //  assert(Type.DETACHED_HOUSE.upperName == "DETACHED_HOUSE")
-  //}
+  /**
+   * DETACHED_HOUSE Test
+   */
+  "The DETACHED_HOUSE object upperName is the same as the specified string" in {
+    Type.DETACHED_HOUSE.upperName mustBe "DETACHED_HOUSE"
+  }
 
-  //test("The DETACHED_HOUSE object upperName is not the same as the specified string") {
-  //  assert(Type.DETACHED_HOUSE.upperName != "APARTMENT_BUILDING")
-  //}
+  "The DETACHED_HOUSE object upperName is not the same as the specified string" in {
+    Type.DETACHED_HOUSE.upperName must not be "APARTMENT_BUILDING"
+  }
 
-  //test("The DETACHED_HOUSE object lowerName is the same as the specified string") {
-  //  assert(Type.DETACHED_HOUSE.lowerName == "detached_house")
-  //}
+  "The DETACHED_HOUSE object lowerName is the same as the specified string" in {
+    Type.DETACHED_HOUSE.lowerName mustBe "detached_house"
+  }
 
-  //test("The DETACHED_HOUSE object lowerName is not the same as the specified string") {
-  //  assert(Type.DETACHED_HOUSE.lowerName != "apartment_building")
-  //}
+  "The DETACHED_HOUSE object lowerName is not the same as the specified string" in {
+    Type.DETACHED_HOUSE.lowerName must not be "apartment_building"
+  }
 
-  //test("DETACHED_HOUSE code will be the same as the specified number") {
-  //  assert(Type.DETACHED_HOUSE.code == 1)
-  //}
+  "DETACHED_HOUSE code will be the same as the specified number" in {
+    Type.DETACHED_HOUSE.code mustBe 1
+  }
 
-  //test("DETACHED_HOUSE code will not be the same as the specified number") {
-  //  assert(Type.DETACHED_HOUSE.code != 2)
-  //}
+  "DETACHED_HOUSE code will not be the same as the specified number" in {
+    Type.DETACHED_HOUSE.code must not be 2
+  }
 
-  //test("The DETACHED_HOUSE object nameSet is the same as the specified name set") {
-  //  assert(Type.DETACHED_HOUSE.nameSet == ("DETACHED_HOUSE", "detached_house", "戸建て"))
-  //}
+  "The DETACHED_HOUSE object nameSet is the same as the specified name set" in {
+    Type.DETACHED_HOUSE.nameSet mustBe ("DETACHED_HOUSE", "detached_house", "戸建て")
+  }
 
-  //test("The DETACHED_HOUSE object detailName is not the same as the specified name set") {
-  //  assert(Type.DETACHED_HOUSE.nameSet != ("APARTMENT_BUILDING", "apartment_building", "マンション"))
-  //}
+  "The DETACHED_HOUSE object detailName is not the same as the specified name set" in {
+    Type.DETACHED_HOUSE.nameSet must not be ("APARTMENT_BUILDING", "apartment_building", "マンション")
+  }
 
-  //test("The Type obtained from the Type search is the same as the specified DETACHED_HOUSE") {
-  //  assert(Type.find(1) == Type.DETACHED_HOUSE)
-  //}
+  "The Type obtained from the Type search is the same as the specified DETACHED_HOUSE" in {
+    Type.find(1) mustBe Type.DETACHED_HOUSE
+  }
 
-  //test("The Type obtained from the Type search is not the same as the specified DETACHED_HOUSE") {
-  //  assert(Type.find(2) != Type.DETACHED_HOUSE)
-  //}
+  "The Type obtained from the Type search is not the same as the specified DETACHED_HOUSE" in {
+    Type.find(2) must not be Type.DETACHED_HOUSE
+  }
 
-  ///**
-  // * APARTMENT_BUILDING Test
-  // */
-  //test("The APARTMENT_BUILDING object upperName is the same as the specified string") {
-  //  assert(Type.APARTMENT_BUILDING.upperName == "APARTMENT_BUILDING")
-  //}
+  /**
+   * APARTMENT_BUILDING Test
+   */
+  "The APARTMENT_BUILDING object upperName is the same as the specified string" in {
+    Type.APARTMENT_BUILDING.upperName mustBe "APARTMENT_BUILDING"
+  }
 
-  //test("The APARTMENT_BUILDING object upperName is not the same as the specified string") {
-  //  assert(Type.APARTMENT_BUILDING.upperName != "LAND")
-  //}
+  "The APARTMENT_BUILDING object upperName is not the same as the specified string" in {
+    Type.APARTMENT_BUILDING.upperName must not be "LAND"
+  }
 
-  //test("The APARTMENT_BUILDING object lowerName is the same as the specified string") {
-  //  assert(Type.APARTMENT_BUILDING.lowerName == "apartment_building")
-  //}
+  "The APARTMENT_BUILDING object lowerName is the same as the specified string" in {
+    Type.APARTMENT_BUILDING.lowerName mustBe "apartment_building"
+  }
 
-  //test("The APARTMENT_BUILDING object lowerName is not the same as the specified string") {
-  //  assert(Type.APARTMENT_BUILDING.lowerName != "land")
-  //}
+  "The APARTMENT_BUILDING object lowerName is not the same as the specified string" in {
+    Type.APARTMENT_BUILDING.lowerName must not be "land"
+  }
 
-  //test("APARTMENT_BUILDING code will be the same as the specified number") {
-  //  assert(Type.APARTMENT_BUILDING.code == 2)
-  //}
+  "APARTMENT_BUILDING code will be the same as the specified number" in {
+    Type.APARTMENT_BUILDING.code mustBe 2
+  }
 
-  //test("APARTMENT_BUILDING code will not be the same as the specified number") {
-  //  assert(Type.APARTMENT_BUILDING.code != 0)
-  //}
+  "APARTMENT_BUILDING code will not be the same as the specified number" in {
+    Type.APARTMENT_BUILDING.code must not be 0
+  }
 
-  //test("The APARTMENT_BUILDING object nameSet is the same as the specified name set") {
-  //  assert(Type.APARTMENT_BUILDING.nameSet == ("APARTMENT_BUILDING", "apartment_building", "マンション"))
-  //}
+  "The APARTMENT_BUILDING object nameSet is the same as the specified name set" in {
+    Type.APARTMENT_BUILDING.nameSet mustBe ("APARTMENT_BUILDING", "apartment_building", "マンション")
+  }
 
-  //test("The APARTMENT_BUILDING object detailName is not the same as the specified name set") {
-  //  assert(Type.APARTMENT_BUILDING.nameSet != ("LAND", "land", "土地"))
-  //}
+  "The APARTMENT_BUILDING object detailName is not the same as the specified name set" in {
+    Type.APARTMENT_BUILDING.nameSet must not be ("LAND", "land", "土地")
+  }
 
-  //test("The Type obtained from the Type search is the same as the specified APARTMENT_BUILDING") {
-  //  assert(Type.find(2) == Type.APARTMENT_BUILDING)
-  //}
+  "The Type obtained from the Type search is the same as the specified APARTMENT_BUILDING" in {
+    Type.find(2) mustBe Type.APARTMENT_BUILDING
+  }
 
-  //test("The Type obtained from the Type search is not the same as the specified APARTMENT_BUILDING") {
-  //  assert(Type.find(0) != Type.APARTMENT_BUILDING)
-  //}
+  "The Type obtained from the Type search is not the same as the specified APARTMENT_BUILDING" in {
+    Type.find(0) must not be Type.APARTMENT_BUILDING
+  }
 }
