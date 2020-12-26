@@ -1,6 +1,5 @@
 package library.backend
 
-//import slick.jdbc.JdbcProfile
 import slick.jdbc.MySQLProfile
 
 trait SlickDatabaseConfig extends RefinedProfile {
