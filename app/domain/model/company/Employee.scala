@@ -11,7 +11,7 @@ import domain.value.common.birthDate._
 import domain.value.common.phone.PhoneNumber
 import domain.value.common.email.Email
 
-import library.model.{Entity, EntityId}
+import library.model.{Entity, EntityValue}
 
 import eu.timepit.refined._
 import eu.timepit.refined.collection._
@@ -34,7 +34,9 @@ case class Employee (
   licenseNumber: Option[LicenseNumber]
 ) extends Entity[Employee.Id]
 
-object Employee extends EntityId {
+object Employee {
+
+  case class Id(value: UUID) extends EntityValue[UUID]
 
   type LicenseNumberRule   = MatchesRegex[W.`"[0-9]+"`.T]
   type LicenseNumberString = String Refined LicenseNumberRule
