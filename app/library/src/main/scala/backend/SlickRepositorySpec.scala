@@ -25,11 +25,6 @@ trait SlickRepositorySpec extends PlaySpec
       interval = Span(1000, Millis)
     )
 
-    /*
-    protected lazy val dbConfigProvider: DatabaseConfigProvider =
-      fakeApplication.injector.instanceOf[DatabaseConfigProvider]
-      */
-
     override lazy val fakeApplication: Application = new GuiceApplicationBuilder()
       .configure(Map(
         "slick.dbs.default.profile"     -> "com.mysql.Driver",
