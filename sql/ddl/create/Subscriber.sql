@@ -4,7 +4,7 @@ CREATE TABLE `subscriber` (
   `subscriber_id`  VARCHAR(255)          NOT NULL,
   `first_name`     VARCHAR(255)          NOT NULL,
   `last_name`      VARCHAR(255)          NOT NULL,
-  `birth_year`     TINYINT      UNSIGNED NOT NULL,
+  `birth_year`     SMALLINT     UNSIGNED NOT NULL,
   `birth_month`    TINYINT      UNSIGNED NOT NULL,
   `birth_day`      TINYINT      UNSIGNED NOT NULL,
   `address`        VARCHAR(255)          NOT NULL,
