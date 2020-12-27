@@ -16,6 +16,7 @@ class AgreementRepositoryImpl @Inject()(
   with    SlickRepository {
 
   import api._
+  import mapping._
 
   lazy val agreementTable = TableQuery[AgreementTable]
 
