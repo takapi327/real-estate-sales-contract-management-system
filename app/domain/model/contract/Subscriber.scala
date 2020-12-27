@@ -11,7 +11,7 @@ import domain.value.common.name._
 import domain.value.common.email.Email
 import domain.value.common.address.Address
 
-import library.model.{Entity, EntityId}
+import library.model.{Entity, EntityValue}
 
 case class Subscriber(
   id:           Subscriber.Id,
@@ -25,7 +25,9 @@ case class Subscriber(
   email:        Email
 ) extends Entity[Subscriber.Id]
 
-object Subscriber extends EntityId {
+object Subscriber {
+
+  case class Id(value: UUID) extends EntityValue[UUID]
 
   def create(
     rawFirstName:   String,

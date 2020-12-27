@@ -6,7 +6,7 @@ import domain.model.contract.Subscriber
 
 trait SubscriberRepository {
 
-  def add(subscriber: Subscriber): Future[Subscriber]
+  def add(subscriber: Subscriber): Future[Int]
 
   def findById(id: Subscriber.Id): Future[Option[Subscriber]]
 

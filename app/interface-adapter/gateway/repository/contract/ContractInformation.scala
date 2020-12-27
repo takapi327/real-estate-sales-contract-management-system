@@ -19,9 +19,9 @@ class ContractInformationRepositoryImpl @Inject()(
 
   lazy val contractInformationTable = TableQuery[ContractInformationTable]
 
-  def add(contractInformation: ContractInformation): Future[ContractInformation] = {
+  def add(contractInformation: ContractInformation): Future[Int] = {
     db.run(
-      (contractInformationTable returning contractInformationTable) += contractInformation
+      contractInformationTable += contractInformation
     )
   }
 

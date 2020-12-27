@@ -4,7 +4,7 @@ import java.util.UUID
 
 import domain.model.property.Property
 
-import library.model.{Entity, EntityId}
+import library.model.{Entity, EntityValue}
 
 import io.estatico.newtype.macros.newtype
 
@@ -14,7 +14,9 @@ case class ContractInformation (
   contents:   ContractInformation.Contents
 ) extends Entity[ContractInformation.Id]
 
-object ContractInformation extends EntityId {
+object ContractInformation {
+
+  case class Id(value: UUID) extends EntityValue[UUID]
 
   @newtype case class Contents(value: String)
 

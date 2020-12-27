@@ -1,14 +1,16 @@
 package domain.model.contract
 
+import java.time.LocalDate
+
 import org.scalatest._
 import org.scalatestplus.play._
 
 import domain.model.company.Employee
 import domain.model.property.Property
 
-class ContractTest extends FunSuite {
+class ContractTest extends PlaySpec {
 
-  test("If you pass the ContractOfSale model arguments correctly, they will be stored in Right") {
+  "If you pass the ContractOfSale model arguments correctly, they will be stored in Right" in {
 
     val contractOfSale = for {
 
@@ -30,12 +32,10 @@ class ContractTest extends FunSuite {
       )
     }
 
-    assert(
-      contractOfSale.isRight
-    )
+    contractOfSale.isRight mustBe true
   }
 
-  test("If you pass the ContractOfBuy model arguments correctly, they will be stored in Right") {
+  "If you pass the ContractOfBuy model arguments correctly, they will be stored in Right" in {
 
     val contractOfBuy = for {
 
@@ -57,35 +57,37 @@ class ContractTest extends FunSuite {
       )
     }
 
-    assert(
-      contractOfBuy.isRight
-    )
+    contractOfBuy.isRight mustBe true
   }
 
   lazy val subscriber = Subscriber.create(
     rawFirstName   = "test",
     rawLastName    = "テスト",
-    rawAge         = 25,
+    rawBirthYear   = 1995,
+    rawBirthMonth  = 7,
+    rawBirthDay    = 15,
     rawAddress     = "hogehoge",
-    rawPhoneNumber = "090-123-4567",
+    rawPhoneNumber = "0901234567",
     rawEmail       = "test@ezweb.ne.jp"
   )
 
   lazy val employee = Employee.create(
     rawFirstName     = "test",
     rawLastName      = "テスト",
-    rawAge           = 25,
+    rawBirthYear     = 1995,
+    rawBirthMonth    = 7,
+    rawBirthDay      = 15,
     rawAddress       = "hogehoge",
-    rawPhoneNumber   = "090-1234-5678",
+    rawPhoneNumber   = "09012345678",
     rawEmail         = "test@ezweb.ne.jp",
-    rawLicenseNumber = None
+    rawLicenseNumber = Some("34535")
   )
 
   lazy val property = Property.create(
     rawAddress            = "hogehoge",
     rawTypeCode           = 2,
     rawPrice              = "20,000,000",
-    rawAge                = 40,
+    rawDateBuilt          = LocalDate.now(),
     rawStructureCode      = 4,
     rawArrangementOfRooms = "3LDK"
   )

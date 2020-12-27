@@ -18,16 +18,16 @@ class EmployeeTable(tag: Tag) extends SlickTable[Employee](tag, "employee") {
   import api._
   import mapping._
 
-  /* @1  */ def id            = column[Employee.Id]          ("employee_id", O.PrimaryKey)
+  /* @1  */ def id            = column[Employee.Id]          ("employee_id",    O.PrimaryKey)
   /* @2  */ def firstName     = column[NameString]           ("first_name")
   /* @3  */ def lastName      = column[NameString]           ("last_name")
   /* @4  */ def birthYear     = column[YearInt]              ("birth_year")
   /* @5  */ def birthMonth    = column[MonthInt]             ("birth_month")
   /* @6  */ def birthDay      = column[DayInt]               ("birth_day")
   /* @7  */ def address       = column[AddressString]        ("address")
-  /* @8  */ def phoneNumber   = column[PhoneNumberInt]       ("phone_number")
-  /* @9  */ def email         = column[EmailString]          ("email")
-  /* @10 */ def licenseNumber = column[LicenseNumberString]  ("license_number")
+  /* @8  */ def phoneNumber   = column[PhoneNumberInt]       ("phone_number",   O.Unique)
+  /* @9  */ def email         = column[EmailString]          ("email",          O.Unique)
+  /* @10 */ def licenseNumber = column[LicenseNumberString]  ("license_number", O.Unique)
 
   type TableElementTuple = (
     Employee.Id,   NameString,     NameString,  YearInt, MonthInt, DayInt,

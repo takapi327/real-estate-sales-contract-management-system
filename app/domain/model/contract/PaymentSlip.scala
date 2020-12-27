@@ -9,7 +9,7 @@ import domain.model.contract.ContractInformation
 import domain.value.property._
 import domain.value.property.price.Price
 
-import library.model.{Entity, EntityId}
+import library.model.{Entity, EntityValue}
 
 import io.estatico.newtype.macros.newtype
 
@@ -20,7 +20,9 @@ case class PaymentSlip (
   price:         Price
 ) extends Entity[PaymentSlip.Id]
 
-object PaymentSlip extends EntityId {
+object PaymentSlip {
+
+  case class Id(value: UUID) extends EntityValue[UUID]
 
   @newtype case class ItemName(value: String)
 

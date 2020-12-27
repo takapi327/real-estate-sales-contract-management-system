@@ -1,6 +1,6 @@
 package library.backend
 
-import slick.jdbc.JdbcProfile
+import slick.jdbc.MySQLProfile
 
 trait SlickDatabaseConfig extends RefinedProfile {
 
@@ -8,7 +8,7 @@ trait SlickDatabaseConfig extends RefinedProfile {
 
   import api._
 
-  val db: JdbcProfile#Backend#Database = Database.forConfig("database")
+  val db: MySQLProfile#Backend#Database = Database.forConfig("slick.dbs.default.db")
 
 }
 

@@ -16,12 +16,13 @@ class AgreementRepositoryImpl @Inject()(
   with    SlickRepository {
 
   import api._
+  import mapping._
 
   lazy val agreementTable = TableQuery[AgreementTable]
 
-  def add(agreement: Agreement): Future[Agreement] = {
+  def add(agreement: Agreement): Future[Int] = {
     db.run(
-      (agreementTable returning agreementTable) += agreement
+      agreementTable += agreement
     )
   }
 

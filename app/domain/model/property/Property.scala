@@ -12,7 +12,7 @@ import domain.value.property._
 import domain.value.property.price.Price
 import domain.value.property.arrangementofrooms.ArrangementOfRooms
 
-import library.model.{Entity, EntityId}
+import library.model.{Entity, EntityValue}
 
 case class Property(
   id:                 Property.Id,
@@ -24,7 +24,9 @@ case class Property(
   arrangementOfRooms: ArrangementOfRooms
 ) extends Entity[Property.Id]
 
-object Property extends EntityId {
+object Property {
+
+  case class Id(value: UUID) extends EntityValue[UUID]
 
   def create(
     rawAddress:            String,

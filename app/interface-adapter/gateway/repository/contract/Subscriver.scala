@@ -16,12 +16,13 @@ class SubscriberRepositoryImpl @Inject()(
   with    SlickRepository {
 
   import api._
+  import mapping._
 
   lazy val subscriberTable = TableQuery[SubscriberTable]
 
-  def add(subscriber: Subscriber): Future[Subscriber] = {
+  def add(subscriber: Subscriber): Future[Int] = {
     db.run(
-      (subscriberTable returning subscriberTable) += subscriber
+      subscriberTable += subscriber
     )
   }
 

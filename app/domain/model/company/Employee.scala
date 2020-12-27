@@ -11,7 +11,7 @@ import domain.value.common.birthDate._
 import domain.value.common.phone.PhoneNumber
 import domain.value.common.email.Email
 
-import library.model.{Entity, EntityId}
+import library.model.{Entity, EntityValue}
 
 import eu.timepit.refined._
 import eu.timepit.refined.collection._
@@ -34,7 +34,9 @@ case class Employee (
   licenseNumber: Option[LicenseNumber]
 ) extends Entity[Employee.Id]
 
-object Employee extends EntityId {
+object Employee {
+
+  case class Id(value: UUID) extends EntityValue[UUID]
 
   type LicenseNumberRule   = MatchesRegex[W.`"[0-9]+"`.T]
   type LicenseNumberString = String Refined LicenseNumberRule
@@ -69,10 +71,7 @@ object Employee extends EntityId {
        address       <- Address(rawAddress)
        phoneNumber   <- PhoneNumber(rawPhoneNumber)
        email         <- Email(rawEmail)
-       licenseNumber <- rawLicenseNumber match {
-         case Some(v) => LicenseNumber(v)
-         case None    => Left("Nothing")
-       }
+      licenseNumber  =  rawLicenseNumber.flatMap(f => LicenseNumber(f).toOption)
     } yield {
       Employee (
         id            = Id(UUID.randomUUID),
@@ -84,7 +83,7 @@ object Employee extends EntityId {
         address       = address,
         phoneNumber   = phoneNumber,
         email         = email,
-        licenseNumber = licenseNumber.some
+        licenseNumber = licenseNumber
       )
     }).toValidatedNel
   }

@@ -19,9 +19,9 @@ class PropertyRepositoryImpl @Inject()(
 
   lazy val propertyTable = TableQuery[PropertyTable]
 
-  def add(property: Property): Future[Property] = {
+  def add(property: Property): Future[Int] = {
     db.run(
-      (propertyTable returning propertyTable) += property
+      propertyTable += property
     )
   }
 

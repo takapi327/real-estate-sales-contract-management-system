@@ -16,17 +16,18 @@ class EmployeeRepositoryImpl @Inject()(
   with    SlickRepository {
 
   import api._
+  import mapping._
 
   lazy val employeeTable = TableQuery[EmployeeTable]
 
-  def add(employee: Employee): Future[Employee] = {
-    db.run(
-      (employeeTable returning employeeTable) += employee
+  def add(employee: Employee): Future[Int] = {
+    db.run (
+      employeeTable += employee
     )
   }
 
   def findById(id: Employee.Id): Future[Option[Employee]] = {
-    db.run(
+    db.run (
       employeeTable.filter(_.id === id).result.headOption
     )
   }
