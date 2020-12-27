@@ -16,12 +16,13 @@ class PaymentSlipRepositoryImpl @Inject()(
   with    SlickRepository {
 
   import api._
+  import mapping._
 
   lazy val paymentSlipTable = TableQuery[PaymentSlipTable]
 
-  def add(paymentSlip: PaymentSlip): Future[PaymentSlip] = {
+  def add(paymentSlip: PaymentSlip): Future[Int] = {
     db.run(
-      (paymentSlipTable returning paymentSlipTable) += paymentSlip
+      paymentSlipTable += paymentSlip
     )
   }
 
