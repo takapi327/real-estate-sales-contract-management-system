@@ -3,33 +3,33 @@ package domain.model.company
 import org.scalatest._
 import org.scalatestplus.play._
 
-class EmployeeTest extends FunSuite {
+class EmployeeTest extends PlaySpec {
 
-  test("If you pass the Employee model arguments correctly, they will be stored in Valid") {
-    assert(
-      Employee.create(
-        rawFirstName     = "test",
-        rawLastName      = "テスト",
-        rawAge           = 25,
-        rawAddress       = "hogehoge",
-        rawPhoneNumber   = "090-1234-5678",
-        rawEmail         = "test@ezweb.ne.jp",
-        rawLicenseNumber = None
-      ).isValid
-    )
+  "If you pass the Employee model arguments correctly, they will be stored in Valid" in {
+    Employee.create(
+      rawFirstName     = "test",
+      rawLastName      = "テスト",
+      rawBirthYear     = 1995,
+      rawBirthMonth    = 7,
+      rawBirthDay      = 15,
+      rawAddress       = "hogehoge",
+      rawPhoneNumber   = "09012345678",
+      rawEmail         = "test@ezweb.ne.jp",
+      rawLicenseNumber = None
+    ).isValid mustBe true
   }
 
-  test("If you pass the Employee model arguments with LicenseNumber correctly, they will be stored in Valid") {
-    assert(
-      Employee.create(
-        rawFirstName     = "test",
-        rawLastName      = "テスト",
-        rawAge           = 25,
-        rawAddress       = "hogehoge",
-        rawPhoneNumber   = "090-1234-5678",
-        rawEmail         = "test@ezweb.ne.jp",
-        rawLicenseNumber = Some(378792)
-      ).isValid
-    )
+  "If you pass the Employee model arguments with LicenseNumber correctly, they will be stored in Valid" in {
+    Employee.create(
+      rawFirstName     = "test",
+      rawLastName      = "テスト",
+      rawBirthYear     = 1995,
+      rawBirthMonth    = 7,
+      rawBirthDay      = 15,
+      rawAddress       = "hogehoge",
+      rawPhoneNumber   = "09012345678",
+      rawEmail         = "test@ezweb.ne.jp",
+      rawLicenseNumber = Some("378792")
+    ).isValid mustBe true
   }
 }

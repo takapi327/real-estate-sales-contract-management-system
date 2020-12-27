@@ -5,25 +5,36 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
-import domain.value.common._
-import library.model.EntityEmbededId
+import domain.value.common.birthDate._
+import domain.value.common.phone.PhoneNumber
+import domain.value.common.name._
+import domain.value.common.email.Email
+import domain.value.common.address.Address
+
+import library.model.{Entity, EntityValue}
 
 case class Subscriber(
   id:           Subscriber.Id,
   firstName:    FirstName,
   lastName:     LastName,
-  age:          Age,
+  birthYear:    Year,
+  birthMonth:   Month,
+  birthDay:     Day,
   address:      Address,
   phoneNumber:  PhoneNumber,
   email:        Email
-)
+) extends Entity[Subscriber.Id]
 
-object Subscriber extends EntityEmbededId {
+object Subscriber {
+
+  case class Id(value: UUID) extends EntityValue[UUID]
 
   def create(
     rawFirstName:   String,
     rawLastName:    String,
-    rawAge:         Int,
+    rawBirthYear:   Int,
+    rawBirthMonth:  Int,
+    rawBirthDay:    Int,
     rawAddress:     String,
     rawPhoneNumber: String,
     rawEmail:       String
@@ -35,7 +46,9 @@ object Subscriber extends EntityEmbededId {
    (for {
      firstName   <- FirstName(rawFirstName)
      lastName    <- LastName(rawLastName)
-     age         <- Age(rawAge)
+     birthYear   <- Year(rawBirthYear)
+     birthMonth  <- Month(rawBirthMonth)
+     birthDay    <- Day(rawBirthDay)
      address     <- Address(rawAddress)
      phoneNumber <- PhoneNumber(rawPhoneNumber)
      email       <- Email(rawEmail)
@@ -44,7 +57,9 @@ object Subscriber extends EntityEmbededId {
        id           = Id(UUID.randomUUID),
        firstName    = firstName,
        lastName     = lastName,
-       age          = age,
+       birthYear    = birthYear,
+       birthMonth   = birthMonth,
+       birthDay     = birthDay,
        address      = address,
        phoneNumber  = phoneNumber,
        email        = email

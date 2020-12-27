@@ -4,7 +4,7 @@ import java.util.UUID
 
 import domain.model.property.Property
 
-import library.model.EntityEmbededId
+import library.model.{Entity, EntityValue}
 
 import io.estatico.newtype.macros.newtype
 
@@ -12,9 +12,11 @@ case class ContractInformation (
   id:         ContractInformation.Id,
   propertyId: Property.Id,
   contents:   ContractInformation.Contents
-)
+) extends Entity[ContractInformation.Id]
 
-object ContractInformation extends EntityEmbededId {
+object ContractInformation {
+
+  case class Id(value: UUID) extends EntityValue[UUID]
 
   @newtype case class Contents(value: String)
 

@@ -3,9 +3,9 @@ package domain.model.contract
 import domain.model.company._
 
 case class ContractOfBuy(
-  contractInformation: ContractInformation.Id,
-  subscriberId:        Subscriber.Id,
-  employeeId:          Employee.Id
+  contractInformationId: ContractInformation.Id,
+  subscriberId:          Subscriber.Id,
+  employeeId:            Employee.Id
 )
 
 object ContractOfBuy {
@@ -16,9 +16,9 @@ object ContractOfBuy {
     rawEmployeeId:            Employee.Id
   ): ContractOfBuy = {
     ContractOfBuy(
-      contractInformation = rawContractInformationId,
-      subscriberId        = rawSubscriberId,
-      employeeId          = rawEmployeeId
+      contractInformationId = rawContractInformationId,
+      subscriberId          = rawSubscriberId,
+      employeeId            = rawEmployeeId
     )
   }
 }
