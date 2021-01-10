@@ -14,7 +14,7 @@ class SubscriberDetailTable(tag: Tag) extends SlickTable[SubscriberDetail](tag, 
   import api._
   import mapping._
 
-  /* @1 */ def id           = column[Subscriber.Id]     ("subscriber_id", O.PrimaryKey)
+  /* @1 */ def subscriberId = column[Subscriber.Id]     ("subscriber_id", O.PrimaryKey)
   /* @2 */ def birthYear    = column[YearInt]           ("birth_year")
   /* @3 */ def birthMonth   = column[MonthInt]          ("birth_month")
   /* @4 */ def birthDay     = column[DayInt]            ("birth_day")
@@ -27,7 +27,7 @@ class SubscriberDetailTable(tag: Tag) extends SlickTable[SubscriberDetail](tag, 
       DayInt, AddressString,  PhoneNumberInt, EmailString
     )
 
-  def * = (id, birthYear, birthMonth, birthDay, address, phoneNumber, email) .<> (
+  def * = (subscriberId, birthYear, birthMonth, birthDay, address, phoneNumber, email) .<> (
     (x: TableElementTuple) => SubscriberDetail(
       x._1, Year(x._2), Month(x._3),
       Day(x._4), Address(x._5), PhoneNumber(x._6), Email(x._7)
