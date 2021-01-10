@@ -8,7 +8,7 @@ import library.backend.SlickRepository
 import domain.model.property.Property
 import domain.repository.PropertyRepository
 
-import gateway.dao.PropertyTable
+import gateway.dao.property.PropertyTable
 
 class PropertyRepositoryImpl @Inject()(
   implicit ec: ExecutionContext

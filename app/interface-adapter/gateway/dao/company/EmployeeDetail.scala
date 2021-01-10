@@ -1,4 +1,4 @@
-package gateway.dao
+package gateway.dao.company
 
 import slick.lifted.Tag
 

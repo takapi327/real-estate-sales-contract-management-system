@@ -1,4 +1,4 @@
-package gateway.dao
+package gateway.dao.customer
 
 import domain.model.customer.Subscriber
 import slick.lifted.Tag
@@ -26,8 +26,8 @@ class SubscriberTable(tag: Tag) extends SlickTable[Subscriber](tag, "subscriber"
 
   type TableElementTuple = (
     Subscriber.Id, NameString,     NameString,     YearInt, MonthInt,
-    DayInt,        AddressString,  PhoneNumberInt, EmailString
-  )
+      DayInt,        AddressString,  PhoneNumberInt, EmailString
+    )
 
   def * = (id, firstName, lastName, birthYear, birthMonth, birthDay, address, phoneNumber, email) .<> (
     (x: TableElementTuple) => Subscriber(

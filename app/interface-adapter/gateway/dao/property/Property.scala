@@ -1,10 +1,9 @@
-package gateway.dao
+package gateway.dao.property
 
 import java.time.LocalDate
 import slick.lifted.Tag
 
 import library.backend.SlickTable
-import library.backend.SlickDatabaseConfig
 
 import domain.model.property.Property
 

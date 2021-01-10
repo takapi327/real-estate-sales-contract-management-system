@@ -1,13 +1,11 @@
-package gateway.dao
+package gateway.dao.contract
 
 import slick.lifted.Tag
 
 import library.backend.SlickTable
-import library.backend.SlickDatabaseConfig
 
 import domain.model.contract.PaymentSlip
 import domain.model.contract.ContractInformation
-import domain.value.property._
 import domain.value.property.price._
 
 import PaymentSlip._

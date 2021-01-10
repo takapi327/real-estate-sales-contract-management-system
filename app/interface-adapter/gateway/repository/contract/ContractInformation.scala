@@ -8,7 +8,7 @@ import library.backend.SlickRepository
 import domain.model.contract.ContractInformation
 import domain.repository.ContractInformationRepository
 
-import gateway.dao.ContractInformationTable
+import gateway.dao.contract.ContractInformationTable
 
 class ContractInformationRepositoryImpl @Inject()(
   implicit ec: ExecutionContext

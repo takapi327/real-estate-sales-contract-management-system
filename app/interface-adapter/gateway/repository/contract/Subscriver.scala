@@ -6,7 +6,7 @@ import scala.concurrent.{ExecutionContext, Future}
 import javax.inject.Inject
 import library.backend.SlickRepository
 import domain.repository.SubscriberRepository
-import gateway.dao.SubscriberTable
+import gateway.dao.customer.SubscriberTable
 
 class SubscriberRepositoryImpl @Inject()(
   implicit ec: ExecutionContext

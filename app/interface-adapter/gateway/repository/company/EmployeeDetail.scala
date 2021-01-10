@@ -8,7 +8,7 @@ import library.backend.SlickRepository
 import domain.model.company.{Employee, EmployeeDetail}
 import domain.repository.EmployeeDetailRepository
 
-import gateway.dao.EmployeeDetailTable
+import gateway.dao.company.EmployeeDetailTable
 
 class EmployeeDetailRepositoryImpl @Inject()(
   implicit ec: ExecutionContext
