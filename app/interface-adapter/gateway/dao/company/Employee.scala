@@ -12,7 +12,7 @@ class EmployeeTable(tag: Tag) extends SlickTable[Employee](tag, "employee") {
   import api._
   import mapping._
 
-  /* @1  */ def id        = column[Employee.Id] ("employee_id", O.PrimaryKey)
+  /* @1  */ def id        = column[Employee.Id] ("id", O.PrimaryKey)
   /* @2  */ def firstName = column[NameString]  ("first_name")
   /* @3  */ def lastName  = column[NameString]  ("last_name")
 
