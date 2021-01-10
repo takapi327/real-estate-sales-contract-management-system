@@ -1,13 +1,11 @@
 package gateway.repository 
 
+import domain.model.customer.Subscriber
+
 import scala.concurrent.{ExecutionContext, Future}
 import javax.inject.Inject
-
 import library.backend.SlickRepository
-
-import domain.model.contract.Subscriber
 import domain.repository.SubscriberRepository
-
 import gateway.dao.SubscriberTable
 
 class SubscriberRepositoryImpl @Inject()(

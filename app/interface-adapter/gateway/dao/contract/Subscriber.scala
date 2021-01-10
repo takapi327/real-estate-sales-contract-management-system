@@ -1,12 +1,8 @@
 package gateway.dao
 
+import domain.model.customer.Subscriber
 import slick.lifted.Tag
-
 import library.backend.SlickTable
-import library.backend.SlickDatabaseConfig
-
-import domain.model.contract.Subscriber
-
 import domain.value.common.birthDate._
 import domain.value.common.phone._
 import domain.value.common.name._

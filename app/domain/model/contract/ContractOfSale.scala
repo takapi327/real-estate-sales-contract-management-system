@@ -1,6 +1,7 @@
 package domain.model.contract
 
 import domain.model.company._
+import domain.model.customer._
 
 case class ContractOfSale(
   contractInformation: ContractInformation.Id,

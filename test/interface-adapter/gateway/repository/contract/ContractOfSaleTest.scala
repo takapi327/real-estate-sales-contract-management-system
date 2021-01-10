@@ -5,7 +5,7 @@ import java.util.UUID
 import org.scalatest._
 import org.scalatestplus.play._
 
-import domain.model.contract.{ContractOfSale, ContractInformation, Subscriber}
+import domain.model.contract.{ContractOfSale, ContractInformation}
 import domain.model.company.Employee
 
 import library.backend.SlickRepositorySpec

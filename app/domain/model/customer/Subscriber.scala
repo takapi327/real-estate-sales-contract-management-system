@@ -1,17 +1,15 @@
-package domain.model.contract
-
-import java.util.UUID
+package domain.model.customer
 
 import cats.data.ValidatedNel
 import cats.implicits._
-
-import domain.value.common.birthDate._
-import domain.value.common.phone.PhoneNumber
-import domain.value.common.name._
-import domain.value.common.email.Email
 import domain.value.common.address.Address
-
+import domain.value.common.birthDate._
+import domain.value.common.email.Email
+import domain.value.common.name._
+import domain.value.common.phone.PhoneNumber
 import library.model.{Entity, EntityValue}
+
+import java.util.UUID
 
 case class Subscriber(
   id:           Subscriber.Id,

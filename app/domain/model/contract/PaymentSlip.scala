@@ -5,8 +5,6 @@ import java.util.UUID
 import cats.data.ValidatedNel
 import cats.implicits._
 
-import domain.model.contract.ContractInformation
-import domain.value.property._
 import domain.value.property.price.Price
 
 import library.model.{Entity, EntityValue}
