@@ -2,7 +2,6 @@ package domain.model.contract
 
 import java.time.LocalDate
 
-import org.scalatest._
 import org.scalatestplus.play._
 
 import domain.model.company.Employee
@@ -72,15 +71,8 @@ class ContractTest extends PlaySpec {
   )
 
   lazy val employee = Employee.create(
-    rawFirstName     = "test",
-    rawLastName      = "テスト",
-    rawBirthYear     = 1995,
-    rawBirthMonth    = 7,
-    rawBirthDay      = 15,
-    rawAddress       = "hogehoge",
-    rawPhoneNumber   = "09012345678",
-    rawEmail         = "test@ezweb.ne.jp",
-    rawLicenseNumber = Some("34535")
+    rawFirstName = "test",
+    rawLastName  = "テスト"
   )
 
   lazy val property = Property.create(

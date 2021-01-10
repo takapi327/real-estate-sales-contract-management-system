@@ -2,16 +2,11 @@ package gateway.repository
 
 import java.util.UUID
 
-import org.scalatest._
-import org.scalatestplus.play._
-
 import cats.data.Validated.{Invalid, Valid}
-import cats.implicits._
 
 import domain.model.company.Employee
 
 import library.backend.SlickRepositorySpec
-import gateway.dao.EmployeeTable
 
 class EmployeeRepositorySpec extends SlickRepositorySpec {
 
@@ -24,15 +19,8 @@ class EmployeeRepositorySpec extends SlickRepositorySpec {
     "Can store records in DB" in {
 
       val employee = Employee.create(
-        rawFirstName     = "test",
-        rawLastName      = "テスト",
-        rawBirthYear     = 1995,
-        rawBirthMonth    = 7,
-        rawBirthDay      = 15,
-        rawAddress       = "hogehoge",
-        rawPhoneNumber   = "09012345678",
-        rawEmail         = "test@ezweb.ne.jp",
-        rawLicenseNumber = None
+        rawFirstName = "test",
+        rawLastName  = "テスト"
       )
 
       employee match {
