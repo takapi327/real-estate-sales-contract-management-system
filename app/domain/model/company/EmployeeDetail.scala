@@ -3,18 +3,18 @@ package domain.model.company
 import cats.data.ValidatedNel
 import cats.implicits._
 
+import domain.model.company.EmployeeDetail.LicenseNumber
 import domain.value.common.address.Address
 import domain.value.common.birthDate._
-import domain.value.common.phone.PhoneNumber
 import domain.value.common.email.Email
+import domain.value.common.phone.PhoneNumber
 
 import eu.timepit.refined._
-import eu.timepit.refined.string._
 import eu.timepit.refined.api.Refined
+import eu.timepit.refined.string._
 
 import io.estatico.newtype.macros.newtype
 
-import EmployeeDetail.LicenseNumber
 case class EmployeeDetail (
   employeeId:    Employee.Id,
   birthYear:     Year,
