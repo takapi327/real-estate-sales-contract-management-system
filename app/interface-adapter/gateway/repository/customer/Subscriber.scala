@@ -1,4 +1,4 @@
-package gateway.repository 
+package gateway.repository
 
 import domain.model.customer.Subscriber
 
