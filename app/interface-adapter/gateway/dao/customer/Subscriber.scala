@@ -11,7 +11,7 @@ class SubscriberTable(tag: Tag) extends SlickTable[Subscriber](tag, "subscriber"
   import api._
   import mapping._
 
-  /* @1 */ def id        = column[Subscriber.Id] ("subscriber_id", O.PrimaryKey)
+  /* @1 */ def id        = column[Subscriber.Id] ("id", O.PrimaryKey)
   /* @2 */ def firstName = column[NameString]    ("first_name")
   /* @3 */ def lastName  = column[NameString]    ("last_name")
 
