@@ -1,13 +1,11 @@
 package gateway.repository 
 
 import java.util.UUID
-import org.scalatest._
-import org.scalatestplus.play._
+
 import cats.data.Validated.{Invalid, Valid}
-import cats.implicits._
+
 import domain.model.customer.Subscriber
 import library.backend.SlickRepositorySpec
-import gateway.dao.SubscriberTable
 
 class SubscriberRepositorySpec extends SlickRepositorySpec {
 
@@ -20,14 +18,8 @@ class SubscriberRepositorySpec extends SlickRepositorySpec {
     "Can store records in DB" in {
 
       val subscriber = Subscriber.create(
-        rawFirstName   = "test",
-        rawLastName    = "テスト",
-        rawBirthYear   = 1995,
-        rawBirthMonth  = 7,
-        rawBirthDay    = 15,
-        rawAddress     = "hogehoge",
-        rawPhoneNumber = "0901234567",
-        rawEmail       = "test@ezweb.ne.jp"
+        rawFirstName = "test",
+        rawLastName  = "テスト"
       )
 
       subscriber match {

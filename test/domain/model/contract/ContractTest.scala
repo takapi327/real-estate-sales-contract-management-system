@@ -6,6 +6,7 @@ import org.scalatestplus.play._
 
 import domain.model.company.Employee
 import domain.model.property.Property
+import domain.model.customer.Subscriber
 
 class ContractTest extends PlaySpec {
 
@@ -60,14 +61,8 @@ class ContractTest extends PlaySpec {
   }
 
   lazy val subscriber = Subscriber.create(
-    rawFirstName   = "test",
-    rawLastName    = "テスト",
-    rawBirthYear   = 1995,
-    rawBirthMonth  = 7,
-    rawBirthDay    = 15,
-    rawAddress     = "hogehoge",
-    rawPhoneNumber = "0901234567",
-    rawEmail       = "test@ezweb.ne.jp"
+    rawFirstName = "test",
+    rawLastName  = "テスト"
   )
 
   lazy val employee = Employee.create(
