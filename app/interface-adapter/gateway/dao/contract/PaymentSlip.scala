@@ -14,7 +14,7 @@ class PaymentSlipTable(tag: Tag) extends SlickTable[PaymentSlip](tag, "payment_s
   import api._
   import mapping._
 
-  /* @1 */ def id             = column[PaymentSlip.Id]          ("payment_slip_id", O.PrimaryKey)
+  /* @1 */ def id             = column[PaymentSlip.Id]          ("id", O.PrimaryKey)
   /* @2 */ def informationId  = column[ContractInformation.Id]  ("contract_information_id")
   /* @3 */ def itemName       = column[String]                  ("item_name")
   /* @4 */ def price          = column[PriceString]             ("price")

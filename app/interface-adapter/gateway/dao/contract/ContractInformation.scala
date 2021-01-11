@@ -13,7 +13,7 @@ class ContractInformationTable(tag: Tag) extends SlickTable[ContractInformation]
   import api._
   import mapping._
 
-  /* @1 */ def id         = column[ContractInformation.Id]  ("contract_information_id", O.PrimaryKey)
+  /* @1 */ def id         = column[ContractInformation.Id]  ("id", O.PrimaryKey)
   /* @2 */ def propertyId = column[Property.Id]             ("property_id")
   /* @3 */ def contents   = column[String]                  ("contents")
 

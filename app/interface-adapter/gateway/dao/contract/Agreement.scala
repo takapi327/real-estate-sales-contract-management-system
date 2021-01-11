@@ -12,7 +12,7 @@ class AgreementTable(tag: Tag) extends SlickTable[Agreement](tag, "agreement") {
   import api._
   import mapping._
 
-  /* @1 */ def id                    = column[Agreement.Id]            ("agreement_id", O.PrimaryKey)
+  /* @1 */ def id                    = column[Agreement.Id]            ("id", O.PrimaryKey)
   /* @2 */ def contractInformationId = column[ContractInformation.Id]  ("contract_information_id")
   /* @3 */ def name                  = column[String]                  ("name")
 

@@ -18,7 +18,7 @@ class PropertyTable(tag: Tag) extends SlickTable[Property](tag, "property") {
   import api._
   import mapping._
 
-  /* @1 */ def id                 = column[Property.Id]                ("property_id", O.PrimaryKey)
+  /* @1 */ def id                 = column[Property.Id]                ("id", O.PrimaryKey)
   /* @2 */ def address            = column[AddressString]              ("address")
   /* @3 */ def types              = column[Int]                        ("types")
   /* @4 */ def price              = column[PriceString]                ("price")
