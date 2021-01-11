@@ -1,8 +1,9 @@
-package gateway.repository 
+package gateway.repository
 
-import java.util.UUID
+import scala.concurrent.Future
 
-import cats.data.Validated.{Invalid, Valid}
+import cats.data.EitherT
+import cats.implicits._
 
 import domain.model.company.Employee
 
@@ -12,30 +13,40 @@ class EmployeeRepositorySpec extends SlickRepositorySpec {
 
   private val repository = fakeApplication.injector.instanceOf[EmployeeRepositoryImpl]
 
-  afterAll()
+  val employeeValidate = Employee.create(
+    rawFirstName = "test",
+    rawLastName  = "テスト"
+  )
+
+  val employeeData = for {
+    employeeModel <- EitherT.fromEither[Future](employeeValidate.toEither)
+    employee      <- EitherT(repository.add(employeeModel))
+  } yield {
+    employee
+  }
 
   "EmployeeRepositoryImpl Test" should {
 
     "Can store records in DB" in {
 
-      val employee = Employee.create(
-        rawFirstName = "test",
-        rawLastName  = "テスト"
-      )
-
-      employee match {
-        case Valid(e)   => repository.add(e).futureValue mustBe 1
-        case Invalid(e) => fail("Not Create Employee")
-      }
+      employeeData.value.futureValue mustBe employeeValidate.toEither
 
     }
 
     "Can retrieve records from DB by ID" in {
-      val employeeId: Employee.Id = Employee.Id(UUID.fromString("f069d88d-b622-4b5c-98e4-0538e04baf34"))
-      (repository.findById(employeeId).futureValue match {
-        case Some(e) => true
-        case None    => false
-      }) mustBe true
+
+      val result = for {
+        employeeData  <- employeeData
+        employee      <- EitherT(repository.findById(employeeData.id))
+      } yield {
+        employee
+      }
+
+      result.value.futureValue mustBe employeeValidate.toEither
+
     }
+
+    afterAll()
+
   }
 }
