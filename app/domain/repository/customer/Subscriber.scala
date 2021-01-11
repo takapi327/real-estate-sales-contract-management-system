@@ -1,8 +1,8 @@
 package domain.repository
 
-import scala.concurrent.Future
+import domain.model.customer.Subscriber
 
-import domain.model.contract.Subscriber
+import scala.concurrent.Future
 
 trait SubscriberRepository {
 

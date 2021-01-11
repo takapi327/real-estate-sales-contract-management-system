@@ -2,11 +2,11 @@ package domain.model.contract
 
 import java.time.LocalDate
 
-import org.scalatest._
 import org.scalatestplus.play._
 
 import domain.model.company.Employee
 import domain.model.property.Property
+import domain.model.customer.Subscriber
 
 class ContractTest extends PlaySpec {
 
@@ -61,26 +61,13 @@ class ContractTest extends PlaySpec {
   }
 
   lazy val subscriber = Subscriber.create(
-    rawFirstName   = "test",
-    rawLastName    = "テスト",
-    rawBirthYear   = 1995,
-    rawBirthMonth  = 7,
-    rawBirthDay    = 15,
-    rawAddress     = "hogehoge",
-    rawPhoneNumber = "0901234567",
-    rawEmail       = "test@ezweb.ne.jp"
+    rawFirstName = "test",
+    rawLastName  = "テスト"
   )
 
   lazy val employee = Employee.create(
-    rawFirstName     = "test",
-    rawLastName      = "テスト",
-    rawBirthYear     = 1995,
-    rawBirthMonth    = 7,
-    rawBirthDay      = 15,
-    rawAddress       = "hogehoge",
-    rawPhoneNumber   = "09012345678",
-    rawEmail         = "test@ezweb.ne.jp",
-    rawLicenseNumber = Some("34535")
+    rawFirstName = "test",
+    rawLastName  = "テスト"
   )
 
   lazy val property = Property.create(

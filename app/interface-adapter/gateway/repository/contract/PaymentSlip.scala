@@ -8,7 +8,7 @@ import library.backend.SlickRepository
 import domain.model.contract.PaymentSlip
 import domain.repository.PaymentSlipRepository
 
-import gateway.dao.PaymentSlipTable
+import gateway.dao.contract.PaymentSlipTable
 
 class PaymentSlipRepositoryImpl @Inject()(
   implicit ec: ExecutionContext

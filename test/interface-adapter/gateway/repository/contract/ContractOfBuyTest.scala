@@ -2,14 +2,11 @@ package gateway.repository
 
 import java.util.UUID
 
-import org.scalatest._
-import org.scalatestplus.play._
-
-import domain.model.contract.{ContractOfBuy, ContractInformation, Subscriber}
+import domain.model.contract.{ContractOfBuy, ContractInformation}
 import domain.model.company.Employee
+import domain.model.customer.Subscriber
 
 import library.backend.SlickRepositorySpec
-import gateway.dao.ContractOfBuyTable
 
 class ContractOfBuyRepositorySpec extends SlickRepositorySpec {
 

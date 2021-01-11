@@ -2,8 +2,6 @@ package domain.model.contract
 
 import java.util.UUID
 
-import domain.model.contract.ContractInformation
-
 import library.model.{Entity, EntityValue}
 
 import io.estatico.newtype.macros.newtype

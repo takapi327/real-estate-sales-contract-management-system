@@ -1,12 +1,12 @@
-package gateway.dao
+package gateway.dao.contract
 
 import slick.lifted.Tag
 
 import library.backend.SlickTable
-import library.backend.SlickDatabaseConfig
+import domain.model.customer._
 
 import domain.model.company.Employee
-import domain.model.contract.{ContractOfSale, ContractInformation, Subscriber}
+import domain.model.contract.{ContractOfSale, ContractInformation}
 
 class ContractOfSaleTable(tag: Tag) extends SlickTable[ContractOfSale](tag, "contract_of_sale") {
 
