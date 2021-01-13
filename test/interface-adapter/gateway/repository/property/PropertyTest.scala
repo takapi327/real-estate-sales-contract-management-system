@@ -3,16 +3,11 @@ package gateway.repository
 import java.util.UUID
 import java.time.LocalDate
 
-import org.scalatest._
-import org.scalatestplus.play._
-
 import cats.data.Validated.{Invalid, Valid}
-import cats.implicits._
 
 import domain.model.property.Property
 
 import library.backend.SlickRepositorySpec
-import gateway.dao.PropertyTable
 
 class PropertyRepositorySpec extends SlickRepositorySpec {
 
