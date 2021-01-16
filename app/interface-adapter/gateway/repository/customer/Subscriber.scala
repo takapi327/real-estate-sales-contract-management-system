@@ -2,6 +2,8 @@ package gateway.repository
 
 import domain.model.customer.Subscriber
 
+import cats.data.NonEmptyList
+
 import scala.concurrent.{ExecutionContext, Future}
 import javax.inject.Inject
 import library.backend.SlickRepository
@@ -18,15 +20,15 @@ class SubscriberRepositoryImpl @Inject()(
 
   lazy val subscriberTable = TableQuery[SubscriberTable]
 
-  def add(subscriber: Subscriber): Future[Int] = {
+  def add(subscriber: Subscriber): Future[Either[NonEmptyList[Any], Subscriber]]= {
     db.run(
       subscriberTable += subscriber
-    )
+    ).map(_ => Right(subscriber)).recover(error => Left(NonEmptyList.one(error)))
   }
 
-  def findById(id: Subscriber.Id): Future[Option[Subscriber]] = {
+  def findById(id: Subscriber.Id): Future[Either[NonEmptyList[Any], Subscriber]] = {
     db.run(
       subscriberTable.filter(_.id === id).result.headOption
-    )
+    ).map(v => Right(v.get)).recover(error => Left(NonEmptyList.one(error)))
   }
 }
