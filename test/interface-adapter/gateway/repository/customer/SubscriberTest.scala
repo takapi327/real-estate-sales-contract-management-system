@@ -1,39 +1,46 @@
 package gateway.repository
 
-import cats.data.Validated.{Invalid, Valid}
+import cats.data.EitherT
+import cats.implicits._
+
 import domain.model.customer.Subscriber
 import library.backend.SlickRepositorySpec
 
-import java.util.UUID
+import scala.concurrent.Future
 
 class SubscriberRepositorySpec extends SlickRepositorySpec {
 
   private val repository = fakeApplication.injector.instanceOf[SubscriberRepositoryImpl]
 
-  afterAll()
+  val subscriberValidate = Subscriber.create(
+    rawFirstName = "test",
+    rawLastName  = "テスト"
+  )
+
+  val subscriber = for {
+    subscriberEntity <- EitherT.fromEither[Future](subscriberValidate.toEither)
+    subscriber       <- EitherT(repository.add(subscriberEntity))
+  } yield {
+    subscriber
+  }
 
   "SubscriberRepositoryImpl Test" should {
 
     "Can store records in DB" in {
-
-      val subscriber = Subscriber.create(
-        rawFirstName = "test",
-        rawLastName  = "テスト"
-      )
-
-      subscriber match {
-        case Valid(v)   => repository.add(v).futureValue mustBe 1
-        case Invalid(v) => fail("Not Create Subscriber")
-      }
-
+      subscriber.value.futureValue mustBe subscriberValidate.toEither
     }
 
     "Can retrieve records from DB by ID" in {
-      val subscriberId: Subscriber.Id = Subscriber.Id(UUID.fromString("8aa1cff5-58e3-431c-92ed-9ddaa2fd63fb"))
-      (repository.findById(subscriberId).futureValue match {
-        case Some(e) => true
-        case None    => false
-      }) mustBe true
+      val result = for {
+        subscriberEntity <- subscriber
+        subscriber       <- EitherT(repository.findById(subscriberEntity.id))
+      } yield {
+        subscriber
+      }
+
+      result.value.futureValue mustBe subscriberValidate.toEither
     }
   }
+
+  afterAll()
 }
