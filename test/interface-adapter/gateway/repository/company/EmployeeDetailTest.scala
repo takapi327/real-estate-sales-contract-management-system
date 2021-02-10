@@ -52,4 +52,5 @@ class EmployeeDetailRepositorySpec extends SlickRepositorySpec {
     }
   }
 
+  afterAll()
 }

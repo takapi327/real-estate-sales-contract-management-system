@@ -1,12 +1,9 @@
 package gateway.repository
 
 import scala.concurrent.Future
-
 import cats.data.EitherT
 import cats.implicits._
-
 import domain.model.company.Employee
-
 import library.backend.SlickRepositorySpec
 
 class EmployeeRepositorySpec extends SlickRepositorySpec {
@@ -28,9 +25,7 @@ class EmployeeRepositorySpec extends SlickRepositorySpec {
   "EmployeeRepositoryImpl Test" should {
 
     "Can store records in DB" in {
-
       employeeData.value.futureValue mustBe employeeValidate.toEither
-
     }
 
     "Can retrieve records from DB by ID" in {
@@ -46,7 +41,8 @@ class EmployeeRepositorySpec extends SlickRepositorySpec {
 
     }
 
-    afterAll()
-
   }
+
+  afterAll()
+
 }
