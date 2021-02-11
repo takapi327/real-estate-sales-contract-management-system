@@ -24,14 +24,18 @@ trait SlickRepositorySpec extends PlaySpec
       interval = Span(1000, Millis)
     )
 
+  import play.api.Configuration
+  import play.api.inject.bind
+  import com.typesafe.config.ConfigFactory
+  import java.io.File
+
+    val testConfigFile = new File("conf/test.conf")
+    val parsedConfig   = ConfigFactory.parseFile(testConfigFile)
+    val configuration  = ConfigFactory.load(parsedConfig)
+
     override lazy val fakeApplication: Application = new GuiceApplicationBuilder()
-      .configure(Map(
-        "slick.dbs.default.profile"     -> "com.mysql.Driver",
-        "slick.dbs.default.db.driver"   -> "slick.driver.MySQLDriver$",
-        "slick.dbs.default.db.url"      -> "jdbc:mysql://localhost/contract_management_system_test?useSSL=false",
-        "slick.dbs.default.db.user"     -> "root",
-        "slick.dbs.default.db.password" -> "transamGN001"
-      )).build()
+      .overrides(bind[Configuration].toInstance(Configuration(configuration)))
+      .build()
 
     override def afterAll(): Unit = {
       fakeApplication.stop().mapTo[Done].futureValue

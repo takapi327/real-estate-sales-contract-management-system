@@ -8,6 +8,6 @@ CREATE TABLE `subscriber_detail` (
   `address`        VARCHAR(255)          NOT NULL,
   `phone_number`   VARCHAR(255)          NOT NULL,
   `email`          VARCHAR(255),
-  PRIMARY KEY (`subscriber_id`),
+  FOREIGN KEY (`subscriber_id`) REFERENCES `subscriber`(`id`),
   UNIQUE KEY (`email`, `phone_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
