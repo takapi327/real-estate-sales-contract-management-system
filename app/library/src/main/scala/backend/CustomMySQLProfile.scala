@@ -35,9 +35,9 @@ trait CustomMySQLProfile extends JdbcProfile with MySQLProfile {
     }
   }
 
-  override val columnTypes = new JdbcTypes
+  override val columnTypes = new CustomJdbcTypes
 
-  class JdbcTypes extends super.JdbcTypes {
+  class CustomJdbcTypes extends super.JdbcTypes {
     private[this] val formatter = {
       new DateTimeFormatterBuilder()
         .append(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
