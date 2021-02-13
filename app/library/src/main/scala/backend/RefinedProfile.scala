@@ -1,11 +1,9 @@
 package library.backend
 
-import slick.jdbc.MySQLProfile
-
 import be.venneborg.refined.RefinedMapping
 import be.venneborg.refined.RefinedSupport
 
-trait RefinedProfile extends MySQLProfile
+trait RefinedProfile extends CustomMySQLProfile
   with RefinedMapping
   with RefinedSupport
 

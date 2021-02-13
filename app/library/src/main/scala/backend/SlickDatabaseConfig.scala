@@ -1,14 +1,11 @@
 package library.backend
 
-import slick.jdbc.MySQLProfile
-
 trait SlickDatabaseConfig extends RefinedProfile {
 
-  override val api = new API with RefinedImplicits
+  override val api     = new API with RefinedImplicits
+  override val profile = api.slickProfile
 
-  import api._
-
-  val db: MySQLProfile#Backend#Database = Database.forConfig("slick.dbs.default.db")
+  val db: CustomMySQLProfile#Backend#Database = api.Database.forConfig("slick.dbs.default.db")
 
 }
 
